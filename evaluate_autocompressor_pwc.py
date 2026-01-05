@@ -2,8 +2,8 @@
 Evaluate AutoCompressor models on PwC QA JSONL datasets.
 
 - Loads a base AutoCompressor (Llama/Qwen/OPT) and optional LoRA.
-- Compresses context into softprompt summary vectors, then generates answers.
-- Reports Exact Match and token-level F1; writes predictions and summary metrics.
+ - Compresses context into softprompt summary vectors, then generates answers.
+ - Outputs CSVs aligned with predict_qa_500x.py: per-sample predictions, per-sample metrics, and summary metrics (ROUGE, BLEU, EM, F1, timings).
 
 Dataset format (per JSONL row):
 - context: one of `input` | `context` | `passage`
@@ -14,7 +14,11 @@ Rows missing any of these are skipped.
 from __future__ import annotations
 
 import argparse
+import csv
+import hashlib
 import json
+import time
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Sequence
@@ -30,6 +34,26 @@ from auto_compressor import (
     OPTAutoCompressorModel,
     QwenAutoCompressorModel,
 )
+
+# Optional metric dependencies. We fall back to lightweight behavior if missing.
+try:  # noqa: SIM105
+    import nltk
+    from nltk.translate.bleu_score import SmoothingFunction, sentence_bleu
+
+    _TOKENIZER_FN = nltk.word_tokenize
+    _SMOOTHING_FN = SmoothingFunction().method1
+except Exception:  # pragma: no cover - optional dependency guard
+    nltk = None
+    sentence_bleu = None
+    _TOKENIZER_FN = lambda text: text.split()  # noqa: E731
+    _SMOOTHING_FN = None
+
+try:  # noqa: SIM105
+    from rouge import Rouge
+
+    _ROUGE = Rouge()
+except Exception:  # pragma: no cover - optional dependency guard
+    _ROUGE = None
 
 
 def normalize_answer(text: str) -> str:
@@ -52,17 +76,32 @@ def normalize_answer(text: str) -> str:
     return white_space_fix(remove_articles(remove_punc(lower(text))))
 
 
+def sanitize_lora_path(lora_path: str | None, model_path: str) -> str:
+    """Create a stable, filesystem-safe run name from the LoRA/model path."""
+    base_path = Path(lora_path) if lora_path else Path(model_path)
+    tail_parts: Sequence[str]
+    if len(base_path.parts) >= 2:
+        tail_parts = base_path.parts[-2:]
+    else:
+        tail_parts = base_path.parts
+    base = "__".join(tail_parts) if tail_parts else base_path.name
+    safe_base = "".join(ch if ch.isalnum() or ch in {"-", "_", "."} else "_" for ch in base)
+    digest = hashlib.md5(str(base_path.resolve()).encode("utf-8")).hexdigest()[:8]
+    return f"{safe_base}_{digest}"
+
+
+def _sync_if_cuda(device: torch.device) -> None:
+    if device.type == "cuda":
+        torch.cuda.synchronize(device)
+
+
 def f1_score(prediction: str, ground_truth: str) -> float:
     pred_tokens = normalize_answer(prediction).split()
     gold_tokens = normalize_answer(ground_truth).split()
     if not pred_tokens or not gold_tokens:
         return 0.0
-    pred_counts: Dict[str, int] = {}
-    gold_counts: Dict[str, int] = {}
-    for tok in pred_tokens:
-        pred_counts[tok] = pred_counts.get(tok, 0) + 1
-    for tok in gold_tokens:
-        gold_counts[tok] = gold_counts.get(tok, 0) + 1
+    pred_counts = Counter(pred_tokens)
+    gold_counts = Counter(gold_tokens)
     overlap = sum(min(pred_counts.get(tok, 0), gold_counts.get(tok, 0)) for tok in pred_counts)
     if overlap == 0:
         return 0.0
@@ -75,8 +114,49 @@ def exact_match(prediction: str, ground_truth: str) -> float:
     return 1.0 if normalize_answer(prediction) == normalize_answer(ground_truth) else 0.0
 
 
-def metric_max_over_ground_truths(metric_fn, prediction: str, ground_truths: Sequence[str]) -> float:
-    return max(metric_fn(prediction, g) for g in ground_truths) if ground_truths else 0.0
+def compute_metrics(reference: str, candidate: str) -> Dict[str, float]:
+    reference = reference.strip()
+    candidate = candidate.strip()
+
+    metrics = {
+        "rouge-1-p": 0.0,
+        "rouge-1-r": 0.0,
+        "rouge-1-f": 0.0,
+        "rouge-2-p": 0.0,
+        "rouge-2-r": 0.0,
+        "rouge-2-f": 0.0,
+        "rouge-l-p": 0.0,
+        "rouge-l-r": 0.0,
+        "rouge-l-f": 0.0,
+        "bleu": 0.0,
+        "exact_match": exact_match(candidate, reference),
+        "f1": f1_score(candidate, reference),
+    }
+
+    if not reference or not candidate:
+        return metrics
+
+    if _ROUGE is not None:
+        try:
+            rouge_scores = _ROUGE.get_scores(candidate, reference)[0]
+            for key in ("rouge-1", "rouge-2", "rouge-l"):
+                metrics[f"{key}-p"] = rouge_scores[key]["p"]
+                metrics[f"{key}-r"] = rouge_scores[key]["r"]
+                metrics[f"{key}-f"] = rouge_scores[key]["f"]
+        except ValueError:
+            pass
+
+    try:
+        reference_tokens = _TOKENIZER_FN(reference) if reference else []
+        candidate_tokens = _TOKENIZER_FN(candidate) if candidate else []
+    except Exception:
+        reference_tokens = reference.split()
+        candidate_tokens = candidate.split()
+
+    if reference_tokens and candidate_tokens and sentence_bleu is not None:
+        metrics["bleu"] = sentence_bleu([reference_tokens], candidate_tokens, smoothing_function=_SMOOTHING_FN)
+
+    return metrics
 
 
 @dataclass
@@ -199,7 +279,7 @@ def build_model(args: argparse.Namespace, device: torch.device) -> ModelAdapter:
             )
         return out.softprompt
 
-    def _predict(softprompt: torch.Tensor, prompts: List[str]) -> List[str]:
+    def _predict(softprompt: torch.Tensor, prompts: List[str]) -> tuple[List[str], List[bool], List[int]]:
         tokenized = tokenizer(
             prompts,
             return_tensors="pt",
@@ -220,15 +300,21 @@ def build_model(args: argparse.Namespace, device: torch.device) -> ModelAdapter:
                 pad_token_id=tokenizer.pad_token_id,
                 eos_token_id=tokenizer.eos_token_id,
                 do_sample=False,
+                return_dict_in_generate=True,
+                output_scores=False,
             )
 
-        outputs = outputs.cpu()
+        sequences = outputs.sequences.detach().cpu()
         prompt_lengths = attention_mask.sum(dim=1).cpu().tolist()
         responses: List[str] = []
+        generated_lengths: List[int] = []
+        ended_flags: List[bool] = []
         for idx, prompt_len in enumerate(prompt_lengths):
-            generated_ids = outputs[idx, prompt_len:]
+            generated_ids = sequences[idx, prompt_len:]
             responses.append(tokenizer.decode(generated_ids, skip_special_tokens=True).strip())
-        return responses
+            generated_lengths.append(int(len(generated_ids)))
+            ended_flags.append(bool(tokenizer.eos_token_id in generated_ids.tolist()))
+        return responses, ended_flags, generated_lengths
 
     return ModelAdapter(
         tokenizer=tokenizer,
@@ -255,61 +341,164 @@ def evaluate(args: argparse.Namespace) -> None:
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    predictions_path = output_dir / "predictions_full.jsonl"
-    metrics_path = output_dir / "metrics_summary.json"
+    run_name = sanitize_lora_path(args.lora_path, args.model_path)
+    prediction_csv_path = output_dir / f"{run_name}_predictions.csv"
+    metrics_csv_path = output_dir / f"{run_name}_metrics.csv"
+    summary_csv_path = output_dir / f"{run_name}_metrics_summary.csv"
 
-    em_total = 0.0
-    f1_total = 0.0
+    metric_keys = [
+        "rouge-1-p",
+        "rouge-1-r",
+        "rouge-1-f",
+        "rouge-2-p",
+        "rouge-2-r",
+        "rouge-2-f",
+        "rouge-l-p",
+        "rouge-l-r",
+        "rouge-l-f",
+        "bleu",
+        "exact_match",
+        "f1",
+    ]
+
+    aggregate_metrics = {key: 0.0 for key in metric_keys}
+    total_generated_tokens = 0.0
+    total_compress_time = 0.0
+    total_predict_time = 0.0
+
+    detailed_rows: List[Dict[str, object]] = []
+    prediction_rows: List[Dict[str, object]] = []
     sample_count = 0
 
-    with predictions_path.open("w", encoding="utf-8") as pred_f:
-        for batch in tqdm(dataloader, desc="Evaluating PwC"):
-            context_tokens = batch["context_tokens"].to(device)
-            softprompt = model.compress(context_tokens)
+    for batch in tqdm(dataloader, desc="Evaluating PwC"):
+        context_tokens = batch["context_tokens"].to(device)
 
-            prompts = [args.prompt_template.format(question=q) for q in batch["questions"]]
-            preds = model.predict(softprompt, prompts)
+        _sync_if_cuda(device)
+        compress_start = time.perf_counter()
+        softprompt = model.compress(context_tokens)
+        _sync_if_cuda(device)
+        compress_duration = time.perf_counter() - compress_start
+        per_sample_compress = compress_duration / len(batch["ids"])
 
-            for idx, pred in enumerate(preds):
-                gold_answers = batch["answers"][idx]
-                em = metric_max_over_ground_truths(exact_match, pred, gold_answers)
-                f1 = metric_max_over_ground_truths(f1_score, pred, gold_answers)
-                em_total += em
-                f1_total += f1
-                sample_count += 1
+        prompts = [args.prompt_template.format(question=q) for q in batch["questions"]]
 
-                pred_f.write(
-                    json.dumps(
-                        {
-                            "id": batch["ids"][idx],
-                            "question": batch["questions"][idx],
-                            "context": batch["context_texts"][idx],
-                            "answers": gold_answers,
-                            "prediction": pred,
-                            "em": em,
-                            "f1": f1,
-                            "prompt": prompts[idx],
-                        },
-                        ensure_ascii=False,
-                    )
-                    + "\n"
-                )
+        _sync_if_cuda(device)
+        predict_start = time.perf_counter()
+        preds, ended_flags, generated_lengths = model.predict(softprompt, prompts)
+        _sync_if_cuda(device)
+        predict_duration = time.perf_counter() - predict_start
+        per_sample_predict = predict_duration / len(batch["ids"])
 
-    summary = {
+        for idx, pred in enumerate(preds):
+            gold_answers = batch["answers"][idx]
+            reference = gold_answers[0] if gold_answers else ""
+            metrics = compute_metrics(reference, pred)
+
+            for key in metric_keys:
+                aggregate_metrics[key] += metrics[key]
+
+            generated_len = generated_lengths[idx]
+            total_generated_tokens += generated_len
+            total_compress_time += per_sample_compress
+            total_predict_time += per_sample_predict
+            sample_count += 1
+
+            detailed_rows.append(
+                {
+                    "sample_id": batch["ids"][idx],
+                    **{key: metrics[key] for key in metric_keys},
+                    "generated_tokens": generated_len,
+                    "compress_time_s": per_sample_compress,
+                    "predict_time_s": per_sample_predict,
+                    "stopped_by_token": 1 if ended_flags[idx] else 0,
+                }
+            )
+
+            prediction_rows.append(
+                {
+                    "sample_id": batch["ids"][idx],
+                    "question": batch["questions"][idx],
+                    "context": batch["context_texts"][idx],
+                    "ground_truth": reference,
+                    "prediction": pred,
+                    "prompt": prompts[idx],
+                    **{key: metrics[key] for key in metric_keys},
+                    "generated_tokens": generated_len,
+                    "compress_time_s": per_sample_compress,
+                    "predict_time_s": per_sample_predict,
+                    "stopped_by_token": 1 if ended_flags[idx] else 0,
+                }
+            )
+
+    if sample_count == 0:
+        raise ValueError("No samples evaluated. Please check dataset and filters.")
+
+    for key in aggregate_metrics:
+        aggregate_metrics[key] /= sample_count
+
+    averages = {
+        **aggregate_metrics,
+        "generated_tokens_avg": total_generated_tokens / sample_count,
+        "compress_time_s_avg": total_compress_time / sample_count,
+        "predict_time_s_avg": total_predict_time / sample_count,
         "samples": sample_count,
-        "exact_match": em_total / sample_count if sample_count else 0.0,
-        "f1": f1_total / sample_count if sample_count else 0.0,
         "model_path": args.model_path,
         "lora_path": args.lora_path,
         "summary_length": model.info.get("summary_length"),
     }
-    with metrics_path.open("w", encoding="utf-8") as f:
-        json.dump(summary, f, indent=2)
+
+    prediction_fieldnames = [
+        "sample_id",
+        "question",
+        "context",
+        "ground_truth",
+        "prediction",
+        "prompt",
+        *metric_keys,
+        "generated_tokens",
+        "compress_time_s",
+        "predict_time_s",
+        "stopped_by_token",
+    ]
+
+    with prediction_csv_path.open("w", encoding="utf-8", newline="") as pred_file:
+        writer = csv.DictWriter(pred_file, fieldnames=prediction_fieldnames)
+        writer.writeheader()
+        for row in prediction_rows:
+            writer.writerow(row)
+
+    metric_fieldnames = [
+        "sample_id",
+        *metric_keys,
+        "generated_tokens",
+        "compress_time_s",
+        "predict_time_s",
+        "stopped_by_token",
+    ]
+
+    with metrics_csv_path.open("w", encoding="utf-8", newline="") as metrics_file:
+        writer = csv.DictWriter(metrics_file, fieldnames=metric_fieldnames)
+        writer.writeheader()
+        for row in detailed_rows:
+            writer.writerow(row)
+
+    with summary_csv_path.open("w", encoding="utf-8", newline="") as summary_file:
+        writer = csv.writer(summary_file)
+        writer.writerow(["metric", "value"])
+        for key, value in averages.items():
+            writer.writerow([key, value])
 
     print("\nDone.")
-    print(summary)
-    print(f"Predictions: {predictions_path}")
-    print(f"Summary: {metrics_path}")
+    print(f"Samples: {sample_count}")
+    print(f"Exact Match: {averages['exact_match']:.4f}")
+    print(f"F1: {averages['f1']:.4f}")
+    print(f"ROUGE-1 F1: {averages['rouge-1-f']:.4f}")
+    print(f"ROUGE-2 F1: {averages['rouge-2-f']:.4f}")
+    print(f"ROUGE-L F1: {averages['rouge-l-f']:.4f}")
+    print(f"BLEU: {averages['bleu']:.4f}")
+    print(f"Predictions: {prediction_csv_path}")
+    print(f"Metrics: {metrics_csv_path}")
+    print(f"Summary: {summary_csv_path}")
 
 
 def parse_args() -> argparse.Namespace:
