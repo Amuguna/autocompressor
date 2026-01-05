@@ -238,18 +238,18 @@ def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:
 
     if hidden_states.dim() == 5:
         if hidden_states.shape[2] == 2:
-            # (B, S, 2, H_kv, D) -> (B, S, H_kv, 2, D)
-            hidden_states = hidden_states.permute(0, 1, 3, 2, 4)
+            # (B, S, 2, H_kv, D) already matches flash-attn kvpacked layout
+            kv = hidden_states
         elif hidden_states.shape[3] == 2:
-            # (B, S, H_kv, 2, D) already in desired order
-            pass
+            # (B, S, H_kv, 2, D) -> (B, S, 2, H_kv, D)
+            kv = hidden_states.permute(0, 1, 3, 2, 4)
         else:
-            # (B, H_kv, 2, S, D) -> (B, S, H_kv, 2, D)
-            hidden_states = hidden_states.permute(0, 3, 1, 2, 4)
+            # (B, H_kv, 2, S, D) -> (B, S, 2, H_kv, D)
+            kv = hidden_states.permute(0, 3, 2, 1, 4)
 
-        # Repeat kv heads to match attention heads
-        hidden_states = hidden_states.repeat_interleave(n_rep, dim=2)
-        return hidden_states.contiguous()
+        # Repeat kv heads to match attention heads along kv-head dimension (dim=3)
+        kv = kv.repeat_interleave(n_rep, dim=3)
+        return kv.contiguous()
 
     # Fallback to original behavior for 4D tensors
     final_shape = list(hidden_states.shape[:-2]) + [-1] + [hidden_states.shape[-1]]
