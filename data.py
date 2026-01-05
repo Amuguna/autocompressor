@@ -214,6 +214,8 @@ def preprocess_datasets(raw_datasets, tokenizer, data_args, training_args):
         print(f"Total number of training data: {lens}")
         print(f"Training data index: {training_args.train_data_index}, start index: {start_index}, end index: {end_index}")
 
+    return lm_datasets
+
 
 def load_preprocessed_datasets(data_args, model_args):
     assert data_args.preprocessed_train_datasets is not None
