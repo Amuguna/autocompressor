@@ -47,6 +47,19 @@ class TrainingArguments(HfTrainingArguments):
         metadata={"help": "Use fast attention during training (experimental)"}
     )
 
+    save_logits: bool = field(
+        default=False,
+        metadata={"help": "If True, only a subset of the training data is used and logits are saved."}
+    )
+    train_data_index: Optional[int] = field(
+        default=None,
+        metadata={"help": "Index of the training data shard to use when saving logits."}
+    )
+    train_data_percentage: float = field(
+        default=1.0,
+        metadata={"help": "Fraction of the training set to keep when sharding data for logit saving."}
+    )
+
 
 @dataclass
 class ModelArguments:
@@ -175,6 +188,15 @@ class DataTrainingArguments:
     )
     keep_linebreaks: bool = field(
         default=True, metadata={"help": "Whether to keep line breaks when using TXT files or not."}
+    )
+
+    block_size: Optional[int] = field(
+        default=None,
+        metadata={"help": "Chunk length (in tokens) used when grouping text for causal LM training."}
+    )
+    line_by_line_training: bool = field(
+        default=False,
+        metadata={"help": "If True, treat each line/document independently instead of concatenating into blocks."}
     )
 
     # for loading preprocessed data

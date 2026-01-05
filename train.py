@@ -14,7 +14,7 @@ from transformers import (
     set_seed,
 )
 
-from transformers.utils import check_min_version, send_example_telemetry
+from transformers.utils import check_min_version
 from transformers.utils.versions import require_version
 
 from args import TrainingArguments, ModelArguments, DataTrainingArguments

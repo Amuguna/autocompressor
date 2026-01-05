@@ -39,8 +39,17 @@ from transformers.utils import (
     get_full_repo_name,
     is_apex_available,
     is_sagemaker_mp_enabled,
-    is_torch_tpu_available,
 )
+
+try:
+    # transformers <=4.44
+    from transformers.utils import is_torch_tpu_available
+except ImportError:  # transformers >=4.45
+    try:
+        from transformers.utils.import_utils import is_torch_tpu_available
+    except ImportError:
+        def is_torch_tpu_available(*_args, **_kwargs):
+            return False
 from transformers.trainer_pt_utils import get_module_class_from_name
 import time
 

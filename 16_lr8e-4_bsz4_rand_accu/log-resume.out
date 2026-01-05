@@ -1,0 +1,186 @@
+Traceback (most recent call last):
+  File "/home/jyjang/prompt_compression/AutoCompressors/train.py", line 17, in <module>
+    from transformers.utils import check_min_version, send_example_telemetry
+ImportError: cannot import name 'send_example_telemetry' from 'transformers.utils' (/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/transformers/utils/__init__.py)
+E0104 20:33:02.345000 140365089252416 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 0 (pid: 413202) of binary: /home/jyjang/anaconda3/envs/prompt/bin/python3.10
+Traceback (most recent call last):
+  File "/home/jyjang/anaconda3/envs/prompt/bin/torchrun", line 7, in <module>
+    sys.exit(main())
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-01-04_20:33:02
+  host      : thor2
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 413202)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Traceback (most recent call last):
+  File "/home/jyjang/prompt_compression/AutoCompressors/train.py", line 21, in <module>
+    from substep_trainer import SubstepTrainer
+  File "/home/jyjang/prompt_compression/AutoCompressors/substep_trainer.py", line 4, in <module>
+    from base_trainer import BaseTrainer
+  File "/home/jyjang/prompt_compression/AutoCompressors/base_trainer.py", line 38, in <module>
+    from transformers.utils import (
+ImportError: cannot import name 'is_torch_tpu_available' from 'transformers.utils' (/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/transformers/utils/__init__.py)
+E0104 20:38:53.116000 140634171769920 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 0 (pid: 414644) of binary: /home/jyjang/anaconda3/envs/prompt/bin/python3.10
+Traceback (most recent call last):
+  File "/home/jyjang/anaconda3/envs/prompt/bin/torchrun", line 7, in <module>
+    sys.exit(main())
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-01-04_20:38:53
+  host      : thor2
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 414644)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Traceback (most recent call last):
+  File "/home/jyjang/prompt_compression/AutoCompressors/train.py", line 21, in <module>
+    from substep_trainer import SubstepTrainer
+  File "/home/jyjang/prompt_compression/AutoCompressors/substep_trainer.py", line 4, in <module>
+    from base_trainer import BaseTrainer
+  File "/home/jyjang/prompt_compression/AutoCompressors/base_trainer.py", line 38, in <module>
+    from transformers.utils import (
+ImportError: cannot import name 'is_torch_tpu_available' from 'transformers.utils' (/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/transformers/utils/__init__.py)
+E0104 20:39:47.764000 139759272031296 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 0 (pid: 414805) of binary: /home/jyjang/anaconda3/envs/prompt/bin/python3.10
+Traceback (most recent call last):
+  File "/home/jyjang/anaconda3/envs/prompt/bin/torchrun", line 7, in <module>
+    sys.exit(main())
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-01-04_20:39:47
+  host      : thor2
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 414805)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Traceback (most recent call last):
+  File "/home/jyjang/prompt_compression/AutoCompressors/train.py", line 21, in <module>
+    from substep_trainer import SubstepTrainer
+  File "/home/jyjang/prompt_compression/AutoCompressors/substep_trainer.py", line 4, in <module>
+    from base_trainer import BaseTrainer
+  File "/home/jyjang/prompt_compression/AutoCompressors/base_trainer.py", line 43, in <module>
+    from transformers.utils.import_utils import is_torch_tpu_available
+ImportError: cannot import name 'is_torch_tpu_available' from 'transformers.utils.import_utils' (/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/transformers/utils/import_utils.py)
+E0104 20:41:47.643000 140563513218112 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 0 (pid: 415803) of binary: /home/jyjang/anaconda3/envs/prompt/bin/python3.10
+Traceback (most recent call last):
+  File "/home/jyjang/anaconda3/envs/prompt/bin/torchrun", line 7, in <module>
+    sys.exit(main())
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-01-04_20:41:47
+  host      : thor2
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 415803)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Traceback (most recent call last):
+  File "/home/jyjang/prompt_compression/AutoCompressors/train.py", line 21, in <module>
+    from substep_trainer import SubstepTrainer
+  File "/home/jyjang/prompt_compression/AutoCompressors/substep_trainer.py", line 4, in <module>
+    from base_trainer import BaseTrainer
+  File "/home/jyjang/prompt_compression/AutoCompressors/base_trainer.py", line 56, in <module>
+    from transformers.deepspeed import deepspeed_init, is_deepspeed_zero3_enabled
+ModuleNotFoundError: No module named 'transformers.deepspeed'
+E0104 20:43:19.808000 140548594459712 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 0 (pid: 416339) of binary: /home/jyjang/anaconda3/envs/prompt/bin/python3.10
+Traceback (most recent call last):
+  File "/home/jyjang/anaconda3/envs/prompt/bin/torchrun", line 7, in <module>
+    sys.exit(main())
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/jyjang/anaconda3/envs/prompt/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-01-04_20:43:19
+  host      : thor2
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 416339)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -9,14 +9,23 @@ from itertools import chain
 logger = logging.getLogger(__name__)
 
 def load_raw_dataset(data_args, model_args):
+    def ensure_text_column(ds):
+        if "text" in ds.column_names:
+            return ds
+        if "abstract" in ds.column_names:
+            return ds.rename_column("abstract", "text")
+        return ds
+
     if data_args.dataset_name is not None:
-        # Downloading and loading)datasets.load_from_disk() a dataset from the hub.
-        raw_datasets = datasets.load_dataset(
-            data_args.dataset_name,
-            data_args.dataset_config_name,
-            cache_dir=model_args.cache_dir,
-            use_auth_token=True if model_args.use_auth_token else None,
-        )
+        if os.path.exists(data_args.dataset_name):
+            raw_datasets = datasets.load_from_disk(data_args.dataset_name)
+        else:
+            raw_datasets = datasets.load_dataset(
+                data_args.dataset_name,
+                data_args.dataset_config_name,
+                cache_dir=model_args.cache_dir,
+                use_auth_token=True if model_args.use_auth_token else None,
+            )
         if "validation" not in raw_datasets.keys():
             raw_datasets["validation"] = datasets.load_dataset(
                 data_args.dataset_name,
@@ -32,6 +41,10 @@ def load_raw_dataset(data_args, model_args):
                 cache_dir=model_args.cache_dir,
                 use_auth_token=True if model_args.use_auth_token else None,
             )
+
+        if isinstance(raw_datasets, datasets.DatasetDict):
+            for split_name in list(raw_datasets.keys()):
+                raw_datasets[split_name] = ensure_text_column(raw_datasets[split_name])
     else:
         data_files = {}
         dataset_args = {}
@@ -90,7 +103,7 @@ def preprocess_datasets(raw_datasets, tokenizer, data_args, training_args):
     # since this will be pickled to avoid _LazyModule error in Hasher force logger loading before tokenize_function
     tok_logger = transformers.utils.logging.get_logger("transformers.tokenization_utils_base")
 
-    if not training_args.add_special_tokens:
+    if not data_args.add_special_tokens:
         print("Removing special tokens in tokenization")
 
     def tokenize_function(examples, pad=False):
@@ -101,9 +114,9 @@ def preprocess_datasets(raw_datasets, tokenizer, data_args, training_args):
             texts.append(text)
         with CaptureLogger(tok_logger) as cl:
             if pad:
-                output = tokenizer(texts, padding="max_length", truncation=True, max_length=data_args.block_size, add_special_tokens=training_args.add_special_tokens)
+                output = tokenizer(texts, padding="max_length", truncation=True, max_length=data_args.block_size, add_special_tokens=data_args.add_special_tokens)
             else:
-                output = tokenizer(texts, add_special_tokens=training_args.add_special_tokens)
+                output = tokenizer(texts, add_special_tokens=data_args.add_special_tokens)
         # clm input could be much much longer than block_size
         if "Token indices sequence length is longer than the" in cl.out:
             tok_logger.warning(
@@ -116,7 +129,7 @@ def preprocess_datasets(raw_datasets, tokenizer, data_args, training_args):
         tokenized_datasets = datasets.DatasetDict()
         for key in raw_datasets.keys():
             pad = False
-            if training_args.line_by_line_training and ((key == "train") | (key == "validation")):
+            if data_args.line_by_line_training and ((key == "train") | (key == "validation")):
                 pad = True
 
             tokenized_datasets[key] = raw_datasets[key].map(
@@ -169,7 +182,7 @@ def preprocess_datasets(raw_datasets, tokenizer, data_args, training_args):
     # https://huggingface.co/docs/datasets/package_reference/main_classes.html#datasets.Dataset.map
 
     with training_args.main_process_first(desc="grouping texts together"):
-        if training_args.line_by_line_training:
+        if data_args.line_by_line_training:
             for key in tokenized_datasets.keys():
                 if "validation" in key and key != "validation":
                     tokenized_datasets[key] = tokenized_datasets[key].map(
