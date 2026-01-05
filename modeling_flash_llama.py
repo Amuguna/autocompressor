@@ -325,7 +325,10 @@ class LlamaAttention(nn.Module):
             past_len = past_key_value[1]
             if past_len is None:
                 past_len = 0
+            if past_kv is None:
+                past_kv = torch.empty(0, 0, 2, self.num_heads, self.head_dim, device=hidden_states.device, dtype=hidden_states.dtype)
         else:
+            past_kv = None
             past_len = 0
 
         # NOTE: Hack to include position_ids, assuming they are increasing uniformly per block
@@ -346,10 +349,13 @@ class LlamaAttention(nn.Module):
         kv = repeat_kv(kv, self.num_key_value_groups)
 
         # Cache QKV values
-        if has_layer_past:
-            new_len = past_len+q.size(1)
+        if has_layer_past and past_kv.numel() > 0:
+            new_len = past_len + q.size(1)
             if new_len > past_kv.size(1):
-                past_kv = torch.cat([past_kv, torch.empty(hidden_states.size(0), 256, 2, kv.size(3), kv.size(4), dtype=kv.dtype, device=kv.device)], 1)
+                past_kv = torch.cat([
+                    past_kv,
+                    torch.empty(hidden_states.size(0), max(256, new_len - past_kv.size(1)), 2, kv.size(3), kv.size(4), dtype=kv.dtype, device=kv.device)
+                ], 1)
             past_kv[:, past_len:new_len] = kv
             kv = past_kv[:, :new_len]
         else:
