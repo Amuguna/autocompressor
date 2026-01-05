@@ -357,3 +357,2030 @@ Traceback (most recent call last):
   File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
 TypeError: SubstepTrainer.training_step() takes 3 positional arguments but 4 were given
+Ignoring unused CLI arguments: ['8', '16_lr8e-4_bsz2_rand_accu', '8', '16_lr8e-4_bsz2_rand_accu', '8', '16']
+01/05/2026 15:00:22 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+01/05/2026 15:00:22 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+accumulate_summary=True,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=True,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=6,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=no,
+eval_use_gather_object=False,
+fast_attention=False,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_revision=None,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=no,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0008,
+length_column_name=length,
+liger_kernel_config=None,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4/runs/Jan05_15-00-22_main1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1.0,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_position_embeddings=None,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4,
+overwrite_output_dir=False,
+parallelism_config=None,
+past_index=-1,
+per_device_eval_batch_size=2,
+per_device_train_batch_size=2,
+prediction_loss_only=False,
+project=huggingface,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+randomize_substeps=True,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=true,
+run_name=ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4,
+save_logits=False,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=5000,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+segment_gradient_checkpointing=False,
+segment_lengths=[],
+segments_per_substep=2,
+skip_memory_metrics=True,
+summary_length=4,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+trackio_space_id=trackio,
+train_data_index=None,
+train_data_percentage=1.0,
+training_substeps=2,
+use_cpu=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=5000,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:00:22,684 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:00:22,684 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:00:22,684 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:00:22,684 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:00:22,684 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:00:22,684 >> loading file chat_template.jinja
+[INFO|tokenization_utils_base.py:2364] 2026-01-05 15:00:23,107 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Removing special tokens in tokenization
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00000_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00001_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00002_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00003_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00004_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00005_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_*_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00000_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00001_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00002_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00003_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00004_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00005_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_*_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00000_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00001_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00002_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00003_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00004_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00005_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_*_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00000_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00001_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00002_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00003_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00004_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00005_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_*_of_00006.arrow
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:00:23 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00000_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00001_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00002_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00003_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00004_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00005_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_*_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00000_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00001_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00002_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00003_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00004_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00005_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_*_of_00006.arrow
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:00:24 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Total number of training data: 931237
+Didn't find a checkpoint in checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4. Starting training from scratch
+[INFO|configuration_utils.py:763] 2026-01-05 15:00:24,080 >> loading configuration file /home/work/prompt/models/Llama-3.1-8B-Instruct/config.json
+[INFO|configuration_utils.py:839] 2026-01-05 15:00:24,081 >> Model config LlamaConfig {
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "dtype": "bfloat16",
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "transformers_version": "4.57.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[WARNING|logging.py:328] 2026-01-05 15:00:24,189 >> `torch_dtype` is deprecated! Use `dtype` instead!
+[INFO|modeling_utils.py:1169] 2026-01-05 15:00:24,189 >> loading weights file /home/work/prompt/models/Llama-3.1-8B-Instruct/model.safetensors.index.json
+[INFO|modeling_utils.py:2341] 2026-01-05 15:00:24,190 >> Instantiating LlamaAutoCompressorModel model under default dtype torch.bfloat16.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:00:24,191 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:00:24,192 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 66.82it/s]
+[WARNING|modeling_utils.py:5535] 2026-01-05 15:00:24,333 >> Some weights of LlamaAutoCompressorModel were not initialized from the model checkpoint at /home/work/prompt/models/Llama-3.1-8B-Instruct and are newly initialized: ['embed_summary.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:00:24,336 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:00:24,336 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:00:24,336 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:00:24,336 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+trainable params: 13,647,872 || all params: 8,043,925,504 || trainable%: 0.1697
+/home/work/prompt/dpc/autocompressor/base_trainer.py:154: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `SubstepTrainer.__init__`. Use `processing_class` instead.
+  super().__init__(model, args, *more_args, **kwargs)
+[2026-01-05 15:00:31,404] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[INFO|trainer.py:749] 2026-01-05 15:00:33,634 >> Using auto half precision backend
+01/05/2026 15:00:33 - INFO - __main__ - Using a model loaded from scratch!
+[WARNING|trainer.py:982] 2026-01-05 15:00:33,636 >> The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 128009}.
+[INFO|trainer.py:2519] 2026-01-05 15:00:33,909 >> ***** Running training *****
+[INFO|trainer.py:2520] 2026-01-05 15:00:33,909 >>   Num examples = 931,237
+[INFO|trainer.py:2521] 2026-01-05 15:00:33,909 >>   Num Epochs = 1
+[INFO|trainer.py:2522] 2026-01-05 15:00:33,909 >>   Instantaneous batch size per device = 2
+[INFO|trainer.py:2525] 2026-01-05 15:00:33,909 >>   Total train batch size (w. parallel, distributed & accumulation) = 2
+[INFO|trainer.py:2526] 2026-01-05 15:00:33,909 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:2527] 2026-01-05 15:00:33,909 >>   Total optimization steps = 465,619
+[INFO|trainer.py:2528] 2026-01-05 15:00:33,912 >>   Number of trainable parameters = 13,647,872
+[INFO|integration_utils.py:867] 2026-01-05 15:00:33,916 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: jy_jang (aaai2024) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.3
+wandb: Run data is saved locally in checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4 8 16_lr8e-4_bsz2_rand_accu/wandb/run-20260105_150034-wabtq54q
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4
+wandb: ⭐️ View project at https://wandb.ai/aaai2024/huggingface
+wandb: 🚀 View run at https://wandb.ai/aaai2024/huggingface/runs/wabtq54q
+Traceback (most recent call last):
+  File "/home/work/prompt/dpc/autocompressor/train.py", line 292, in <module>
+    main()
+  File "/home/work/prompt/dpc/autocompressor/train.py", line 247, in main
+    train_result = trainer.train(resume_from_checkpoint=last_checkpoint)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/work/prompt/dpc/autocompressor/substep_trainer.py", line 204, in training_step
+    loss, softprompt = self.training_substep(model, input_slice, softprompt, segment_lengths)
+  File "/home/work/prompt/dpc/autocompressor/substep_trainer.py", line 166, in training_substep
+    out = model(**inputs, softprompt=softprompt, segment_lengths=segment_lengths, use_cache=False, output_softprompt=True)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/accelerate/utils/operations.py", line 819, in forward
+    return model_forward(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/accelerate/utils/operations.py", line 807, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 16, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/peft/peft_model.py", line 1719, in forward
+    return self.base_model(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 197, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/work/prompt/dpc/autocompressor/auto_compressor.py", line 229, in forward
+    outputs, segment_hidden_states, new_softprompt = self.forward_segment(
+  File "/home/work/prompt/dpc/autocompressor/auto_compressor.py", line 124, in forward_segment
+    outputs = decoder(
+  File "/home/work/prompt/dpc/autocompressor/auto_compressor.py", line 109, in decoder
+    return self.model(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/work/prompt/dpc/autocompressor/modeling_flash_llama.py", line 554, in forward
+    layer_outputs = decoder_layer(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/work/prompt/dpc/autocompressor/modeling_flash_llama.py", line 400, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/work/prompt/dpc/autocompressor/modeling_flash_llama.py", line 314, in forward
+    kv = repeat_kv(kv, self.num_key_value_groups)
+RuntimeError: The following operation failed in the TorchScript interpreter.
+Traceback of TorchScript (most recent call last):
+  File "/home/work/prompt/dpc/autocompressor/modeling_flash_llama.py", line 231, in repeat_kv
+    final_shape = list(hidden_states.shape[:-2]) + [-1] + [hidden_states.shape[-1]]
+    expand_shape = [-1] * (len(hidden_states.shape) - 1) + [n_rep] + [-1]
+    hidden_states = hidden_states.unsqueeze(-1).expand(expand_shape)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ <--- HERE
+    return hidden_states.reshape(final_shape)
+RuntimeError: The expanded size of the tensor (4) must match the existing size (128) at non-singleton dimension 4.  Target sizes: [-1, -1, -1, -1, 4, -1].  Tensor sizes: [2, 239, 2, 8, 128, 1]
+
+Ignoring unused CLI arguments: ['8', '16_lr8e-4_bsz2_rand_accu', '8', '16_lr8e-4_bsz2_rand_accu', '8', '16']
+01/05/2026 15:04:17 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+01/05/2026 15:04:17 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+accumulate_summary=True,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=True,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=6,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=no,
+eval_use_gather_object=False,
+fast_attention=False,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_revision=None,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=no,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0008,
+length_column_name=length,
+liger_kernel_config=None,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4/runs/Jan05_15-04-16_main1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1.0,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_position_embeddings=None,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4,
+overwrite_output_dir=False,
+parallelism_config=None,
+past_index=-1,
+per_device_eval_batch_size=2,
+per_device_train_batch_size=2,
+prediction_loss_only=False,
+project=huggingface,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+randomize_substeps=True,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=true,
+run_name=ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4,
+save_logits=False,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=5000,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+segment_gradient_checkpointing=False,
+segment_lengths=[],
+segments_per_substep=2,
+skip_memory_metrics=True,
+summary_length=4,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+trackio_space_id=trackio,
+train_data_index=None,
+train_data_percentage=1.0,
+training_substeps=2,
+use_cpu=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=5000,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:04:17,131 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:04:17,131 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:04:17,131 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:04:17,131 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:04:17,131 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:04:17,131 >> loading file chat_template.jinja
+[INFO|tokenization_utils_base.py:2364] 2026-01-05 15:04:17,558 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Removing special tokens in tokenization
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00000_of_00006.arrow
+01/05/2026 15:04:17 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00001_of_00006.arrow
+01/05/2026 15:04:17 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00002_of_00006.arrow
+01/05/2026 15:04:17 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00003_of_00006.arrow
+01/05/2026 15:04:17 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00004_of_00006.arrow
+01/05/2026 15:04:17 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00005_of_00006.arrow
+01/05/2026 15:04:17 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_*_of_00006.arrow
+01/05/2026 15:04:17 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:04:17 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00000_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00001_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00002_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00003_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00004_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00005_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_*_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00000_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00001_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00002_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00003_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00004_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00005_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_*_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00000_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00001_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00002_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00003_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00004_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00005_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_*_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00000_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00001_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00002_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00003_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00004_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00005_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_*_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00000_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00001_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00002_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00003_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00004_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00005_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_*_of_00006.arrow
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:04:18 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Total number of training data: 931237
+Didn't find a checkpoint in checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4. Starting training from scratch
+[INFO|configuration_utils.py:763] 2026-01-05 15:04:18,552 >> loading configuration file /home/work/prompt/models/Llama-3.1-8B-Instruct/config.json
+[INFO|configuration_utils.py:839] 2026-01-05 15:04:18,553 >> Model config LlamaConfig {
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "dtype": "bfloat16",
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "transformers_version": "4.57.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[WARNING|logging.py:328] 2026-01-05 15:04:18,661 >> `torch_dtype` is deprecated! Use `dtype` instead!
+[INFO|modeling_utils.py:1169] 2026-01-05 15:04:18,662 >> loading weights file /home/work/prompt/models/Llama-3.1-8B-Instruct/model.safetensors.index.json
+[INFO|modeling_utils.py:2341] 2026-01-05 15:04:18,662 >> Instantiating LlamaAutoCompressorModel model under default dtype torch.bfloat16.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:04:18,664 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:04:18,664 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 66.40it/s]
+[WARNING|modeling_utils.py:5535] 2026-01-05 15:04:18,787 >> Some weights of LlamaAutoCompressorModel were not initialized from the model checkpoint at /home/work/prompt/models/Llama-3.1-8B-Instruct and are newly initialized: ['embed_summary.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:04:18,789 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:04:18,789 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:04:18,789 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:04:18,789 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+trainable params: 13,647,872 || all params: 8,043,925,504 || trainable%: 0.1697
+/home/work/prompt/dpc/autocompressor/base_trainer.py:154: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `SubstepTrainer.__init__`. Use `processing_class` instead.
+  super().__init__(model, args, *more_args, **kwargs)
+[2026-01-05 15:04:25,966] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[INFO|trainer.py:749] 2026-01-05 15:04:28,191 >> Using auto half precision backend
+01/05/2026 15:04:28 - INFO - __main__ - Using a model loaded from scratch!
+[WARNING|trainer.py:982] 2026-01-05 15:04:28,193 >> The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 128009}.
+[INFO|trainer.py:2519] 2026-01-05 15:04:28,452 >> ***** Running training *****
+[INFO|trainer.py:2520] 2026-01-05 15:04:28,452 >>   Num examples = 931,237
+[INFO|trainer.py:2521] 2026-01-05 15:04:28,452 >>   Num Epochs = 1
+[INFO|trainer.py:2522] 2026-01-05 15:04:28,452 >>   Instantaneous batch size per device = 2
+[INFO|trainer.py:2525] 2026-01-05 15:04:28,452 >>   Total train batch size (w. parallel, distributed & accumulation) = 2
+[INFO|trainer.py:2526] 2026-01-05 15:04:28,452 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:2527] 2026-01-05 15:04:28,452 >>   Total optimization steps = 465,619
+[INFO|trainer.py:2528] 2026-01-05 15:04:28,456 >>   Number of trainable parameters = 13,647,872
+[INFO|integration_utils.py:867] 2026-01-05 15:04:28,460 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: jy_jang (aaai2024) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.3
+wandb: Run data is saved locally in checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4 8 16_lr8e-4_bsz2_rand_accu/wandb/run-20260105_150429-h3hp0451
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4
+wandb: ⭐️ View project at https://wandb.ai/aaai2024/huggingface
+wandb: 🚀 View run at https://wandb.ai/aaai2024/huggingface/runs/h3hp0451
+Traceback (most recent call last):
+  File "/home/work/prompt/dpc/autocompressor/train.py", line 292, in <module>
+    main()
+  File "/home/work/prompt/dpc/autocompressor/train.py", line 247, in main
+    train_result = trainer.train(resume_from_checkpoint=last_checkpoint)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/work/prompt/dpc/autocompressor/substep_trainer.py", line 204, in training_step
+    loss, softprompt = self.training_substep(model, input_slice, softprompt, segment_lengths)
+  File "/home/work/prompt/dpc/autocompressor/substep_trainer.py", line 166, in training_substep
+    out = model(**inputs, softprompt=softprompt, segment_lengths=segment_lengths, use_cache=False, output_softprompt=True)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/accelerate/utils/operations.py", line 819, in forward
+    return model_forward(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/accelerate/utils/operations.py", line 807, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 16, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/peft/peft_model.py", line 1719, in forward
+    return self.base_model(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 197, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/work/prompt/dpc/autocompressor/auto_compressor.py", line 229, in forward
+    outputs, segment_hidden_states, new_softprompt = self.forward_segment(
+  File "/home/work/prompt/dpc/autocompressor/auto_compressor.py", line 124, in forward_segment
+    outputs = decoder(
+  File "/home/work/prompt/dpc/autocompressor/auto_compressor.py", line 109, in decoder
+    return self.model(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/work/prompt/dpc/autocompressor/modeling_flash_llama.py", line 573, in forward
+    layer_outputs = decoder_layer(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/work/prompt/dpc/autocompressor/modeling_flash_llama.py", line 419, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/work/prompt/dpc/autocompressor/modeling_flash_llama.py", line 333, in forward
+    kv = repeat_kv(kv, self.num_key_value_groups)
+  File "/home/work/prompt/dpc/autocompressor/modeling_flash_llama.py", line 244, in repeat_kv
+    hidden_states = hidden_states.unsqueeze(2).expand(b, s, h_kv * n_rep, two, d)
+RuntimeError: expand(CUDABFloat16Type{[2, 239, 1, 8, 2, 128]}, size=[2, 239, 32, 2, 128]): the number of sizes provided (5) must be greater or equal to the number of dimensions in the tensor (6)
+Ignoring unused CLI arguments: ['8', '16_lr8e-4_bsz2_rand_accu', '8', '16_lr8e-4_bsz2_rand_accu', '8', '16']
+01/05/2026 15:06:38 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+01/05/2026 15:06:38 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+accumulate_summary=True,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=True,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=6,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=no,
+eval_use_gather_object=False,
+fast_attention=False,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_revision=None,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=no,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0008,
+length_column_name=length,
+liger_kernel_config=None,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4/runs/Jan05_15-06-38_main1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1.0,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_position_embeddings=None,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4,
+overwrite_output_dir=False,
+parallelism_config=None,
+past_index=-1,
+per_device_eval_batch_size=2,
+per_device_train_batch_size=2,
+prediction_loss_only=False,
+project=huggingface,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+randomize_substeps=True,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=true,
+run_name=ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4,
+save_logits=False,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=5000,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+segment_gradient_checkpointing=False,
+segment_lengths=[],
+segments_per_substep=2,
+skip_memory_metrics=True,
+summary_length=4,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+trackio_space_id=trackio,
+train_data_index=None,
+train_data_percentage=1.0,
+training_substeps=2,
+use_cpu=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=5000,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:06:38,476 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:06:38,476 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:06:38,476 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:06:38,476 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:06:38,476 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:06:38,476 >> loading file chat_template.jinja
+[INFO|tokenization_utils_base.py:2364] 2026-01-05 15:06:38,903 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Removing special tokens in tokenization
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00000_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00001_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00002_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00003_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00004_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00005_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_*_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00000_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00001_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00002_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00003_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00004_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00005_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_*_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00000_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00001_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00002_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00003_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00004_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00005_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_*_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00000_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00001_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00002_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00003_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00004_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00005_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_*_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00000_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00001_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00002_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00003_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00004_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00005_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_*_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00000_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00001_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00002_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00003_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00004_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00005_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_*_of_00006.arrow
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:06:39 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Total number of training data: 931237
+Didn't find a checkpoint in checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4. Starting training from scratch
+[INFO|configuration_utils.py:763] 2026-01-05 15:06:39,870 >> loading configuration file /home/work/prompt/models/Llama-3.1-8B-Instruct/config.json
+[INFO|configuration_utils.py:839] 2026-01-05 15:06:39,871 >> Model config LlamaConfig {
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "dtype": "bfloat16",
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "transformers_version": "4.57.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[WARNING|logging.py:328] 2026-01-05 15:06:39,975 >> `torch_dtype` is deprecated! Use `dtype` instead!
+[INFO|modeling_utils.py:1169] 2026-01-05 15:06:39,976 >> loading weights file /home/work/prompt/models/Llama-3.1-8B-Instruct/model.safetensors.index.json
+[INFO|modeling_utils.py:2341] 2026-01-05 15:06:39,976 >> Instantiating LlamaAutoCompressorModel model under default dtype torch.bfloat16.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:06:39,978 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:06:39,978 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 65.25it/s]
+[WARNING|modeling_utils.py:5535] 2026-01-05 15:06:40,123 >> Some weights of LlamaAutoCompressorModel were not initialized from the model checkpoint at /home/work/prompt/models/Llama-3.1-8B-Instruct and are newly initialized: ['embed_summary.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:06:40,125 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:06:40,126 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:06:40,126 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:06:40,126 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+trainable params: 13,647,872 || all params: 8,043,925,504 || trainable%: 0.1697
+/home/work/prompt/dpc/autocompressor/base_trainer.py:154: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `SubstepTrainer.__init__`. Use `processing_class` instead.
+  super().__init__(model, args, *more_args, **kwargs)
+[2026-01-05 15:06:46,983] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[INFO|trainer.py:749] 2026-01-05 15:06:49,133 >> Using auto half precision backend
+01/05/2026 15:06:49 - INFO - __main__ - Using a model loaded from scratch!
+[WARNING|trainer.py:982] 2026-01-05 15:06:49,135 >> The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 128009}.
+[INFO|trainer.py:2519] 2026-01-05 15:06:49,380 >> ***** Running training *****
+[INFO|trainer.py:2520] 2026-01-05 15:06:49,380 >>   Num examples = 931,237
+[INFO|trainer.py:2521] 2026-01-05 15:06:49,380 >>   Num Epochs = 1
+[INFO|trainer.py:2522] 2026-01-05 15:06:49,380 >>   Instantaneous batch size per device = 2
+[INFO|trainer.py:2525] 2026-01-05 15:06:49,380 >>   Total train batch size (w. parallel, distributed & accumulation) = 2
+[INFO|trainer.py:2526] 2026-01-05 15:06:49,380 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:2527] 2026-01-05 15:06:49,380 >>   Total optimization steps = 465,619
+[INFO|trainer.py:2528] 2026-01-05 15:06:49,384 >>   Number of trainable parameters = 13,647,872
+[INFO|integration_utils.py:867] 2026-01-05 15:06:49,387 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: jy_jang (aaai2024) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.3
+wandb: Run data is saved locally in checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4 8 16_lr8e-4_bsz2_rand_accu/wandb/run-20260105_150649-vb6564rr
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4
+wandb: ⭐️ View project at https://wandb.ai/aaai2024/huggingface
+wandb: 🚀 View run at https://wandb.ai/aaai2024/huggingface/runs/vb6564rr
+Traceback (most recent call last):
+  File "/home/work/prompt/dpc/autocompressor/train.py", line 292, in <module>
+    main()
+  File "/home/work/prompt/dpc/autocompressor/train.py", line 247, in main
+    train_result = trainer.train(resume_from_checkpoint=last_checkpoint)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/work/prompt/dpc/autocompressor/substep_trainer.py", line 204, in training_step
+    loss, softprompt = self.training_substep(model, input_slice, softprompt, segment_lengths)
+  File "/home/work/prompt/dpc/autocompressor/substep_trainer.py", line 176, in training_substep
+    if self.do_grad_scaling:
+AttributeError: 'SubstepTrainer' object has no attribute 'do_grad_scaling'
+Ignoring unused CLI arguments: ['8', '16_lr8e-4_bsz2_rand_accu', '8', '16_lr8e-4_bsz2_rand_accu', '8', '16']
+01/05/2026 15:08:47 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+01/05/2026 15:08:47 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+accumulate_summary=True,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=True,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=6,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=no,
+eval_use_gather_object=False,
+fast_attention=False,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_revision=None,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=no,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0008,
+length_column_name=length,
+liger_kernel_config=None,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4/runs/Jan05_15-08-47_main1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1.0,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_position_embeddings=None,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4,
+overwrite_output_dir=False,
+parallelism_config=None,
+past_index=-1,
+per_device_eval_batch_size=2,
+per_device_train_batch_size=2,
+prediction_loss_only=False,
+project=huggingface,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+randomize_substeps=True,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=true,
+run_name=ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4,
+save_logits=False,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=5000,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+segment_gradient_checkpointing=False,
+segment_lengths=[],
+segments_per_substep=2,
+skip_memory_metrics=True,
+summary_length=4,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+trackio_space_id=trackio,
+train_data_index=None,
+train_data_percentage=1.0,
+training_substeps=2,
+use_cpu=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=5000,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:08:47,107 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:08:47,107 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:08:47,107 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:08:47,107 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:08:47,107 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:08:47,107 >> loading file chat_template.jinja
+[INFO|tokenization_utils_base.py:2364] 2026-01-05 15:08:47,530 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Removing special tokens in tokenization
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00000_of_00006.arrow
+01/05/2026 15:08:47 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00001_of_00006.arrow
+01/05/2026 15:08:47 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00002_of_00006.arrow
+01/05/2026 15:08:47 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00003_of_00006.arrow
+01/05/2026 15:08:47 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00004_of_00006.arrow
+01/05/2026 15:08:47 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00005_of_00006.arrow
+01/05/2026 15:08:47 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_*_of_00006.arrow
+01/05/2026 15:08:47 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:08:47 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00000_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00001_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00002_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00003_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00004_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00005_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_*_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00000_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00001_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00002_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00003_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00004_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00005_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_*_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00000_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00001_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00002_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00003_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00004_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00005_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_*_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00000_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00001_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00002_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00003_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00004_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00005_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_*_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00000_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00001_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00002_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00003_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00004_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00005_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_*_of_00006.arrow
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:08:48 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Total number of training data: 931237
+Didn't find a checkpoint in checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4. Starting training from scratch
+[INFO|configuration_utils.py:763] 2026-01-05 15:08:48,508 >> loading configuration file /home/work/prompt/models/Llama-3.1-8B-Instruct/config.json
+[INFO|configuration_utils.py:839] 2026-01-05 15:08:48,509 >> Model config LlamaConfig {
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "dtype": "bfloat16",
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "transformers_version": "4.57.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[WARNING|logging.py:328] 2026-01-05 15:08:48,604 >> `torch_dtype` is deprecated! Use `dtype` instead!
+[INFO|modeling_utils.py:1169] 2026-01-05 15:08:48,606 >> loading weights file /home/work/prompt/models/Llama-3.1-8B-Instruct/model.safetensors.index.json
+[INFO|modeling_utils.py:2341] 2026-01-05 15:08:48,606 >> Instantiating LlamaAutoCompressorModel model under default dtype torch.bfloat16.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:08:48,608 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:08:48,608 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 66.95it/s]
+[WARNING|modeling_utils.py:5535] 2026-01-05 15:08:48,752 >> Some weights of LlamaAutoCompressorModel were not initialized from the model checkpoint at /home/work/prompt/models/Llama-3.1-8B-Instruct and are newly initialized: ['embed_summary.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:08:48,755 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:08:48,755 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:08:48,755 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:08:48,755 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+trainable params: 13,647,872 || all params: 8,043,925,504 || trainable%: 0.1697
+/home/work/prompt/dpc/autocompressor/base_trainer.py:154: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `SubstepTrainer.__init__`. Use `processing_class` instead.
+  super().__init__(model, args, *more_args, **kwargs)
+[2026-01-05 15:08:54,993] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[INFO|trainer.py:749] 2026-01-05 15:08:57,207 >> Using auto half precision backend
+01/05/2026 15:08:57 - INFO - __main__ - Using a model loaded from scratch!
+[WARNING|trainer.py:982] 2026-01-05 15:08:57,209 >> The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 128009}.
+[INFO|trainer.py:2519] 2026-01-05 15:08:57,455 >> ***** Running training *****
+[INFO|trainer.py:2520] 2026-01-05 15:08:57,456 >>   Num examples = 931,237
+[INFO|trainer.py:2521] 2026-01-05 15:08:57,456 >>   Num Epochs = 1
+[INFO|trainer.py:2522] 2026-01-05 15:08:57,456 >>   Instantaneous batch size per device = 2
+[INFO|trainer.py:2525] 2026-01-05 15:08:57,456 >>   Total train batch size (w. parallel, distributed & accumulation) = 2
+[INFO|trainer.py:2526] 2026-01-05 15:08:57,456 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:2527] 2026-01-05 15:08:57,456 >>   Total optimization steps = 465,619
+[INFO|trainer.py:2528] 2026-01-05 15:08:57,459 >>   Number of trainable parameters = 13,647,872
+[INFO|integration_utils.py:867] 2026-01-05 15:08:57,463 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: jy_jang (aaai2024) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.3
+wandb: Run data is saved locally in checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4 8 16_lr8e-4_bsz2_rand_accu/wandb/run-20260105_150857-osf6rz9t
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4
+wandb: ⭐️ View project at https://wandb.ai/aaai2024/huggingface
+wandb: 🚀 View run at https://wandb.ai/aaai2024/huggingface/runs/osf6rz9t
+Traceback (most recent call last):
+  File "/home/work/prompt/dpc/autocompressor/train.py", line 292, in <module>
+    main()
+  File "/home/work/prompt/dpc/autocompressor/train.py", line 247, in main
+    train_result = trainer.train(resume_from_checkpoint=last_checkpoint)
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/work/prompt/dpc/autocompressor/substep_trainer.py", line 204, in training_step
+    loss, softprompt = self.training_substep(model, input_slice, softprompt, segment_lengths)
+  File "/home/work/prompt/dpc/autocompressor/substep_trainer.py", line 183, in training_substep
+    loss.backward()
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/_tensor.py", line 522, in backward
+    torch.autograd.backward(
+  File "/home/work/.conda/envs/prompt4/lib/python3.10/site-packages/torch/autograd/__init__.py", line 266, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: Function FlashAttnKVPackedFuncBackward returned an invalid gradient at index 1 - got [2, 29, 2, 2, 128] but expected shape compatible with [2, 29, 32, 2, 128]
+Ignoring unused CLI arguments: ['8', '16_lr8e-4_bsz2_rand_accu', '8', '16_lr8e-4_bsz2_rand_accu', '8', '16']
+01/05/2026 15:10:35 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+01/05/2026 15:10:35 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+accumulate_summary=True,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=True,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=6,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=no,
+eval_use_gather_object=False,
+fast_attention=False,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_revision=None,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=no,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0008,
+length_column_name=length,
+liger_kernel_config=None,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4/runs/Jan05_15-10-35_main1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1.0,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_position_embeddings=None,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4,
+overwrite_output_dir=False,
+parallelism_config=None,
+past_index=-1,
+per_device_eval_batch_size=2,
+per_device_train_batch_size=2,
+prediction_loss_only=False,
+project=huggingface,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+randomize_substeps=True,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=true,
+run_name=ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4,
+save_logits=False,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=5000,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+segment_gradient_checkpointing=False,
+segment_lengths=[],
+segments_per_substep=2,
+skip_memory_metrics=True,
+summary_length=4,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+trackio_space_id=trackio,
+train_data_index=None,
+train_data_percentage=1.0,
+training_substeps=2,
+use_cpu=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=5000,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:10:35,443 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:10:35,443 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:10:35,443 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:10:35,443 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:10:35,443 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2093] 2026-01-05 15:10:35,443 >> loading file chat_template.jinja
+[INFO|tokenization_utils_base.py:2364] 2026-01-05 15:10:35,893 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Removing special tokens in tokenization
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00000_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00001_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00002_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00003_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00004_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00005_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_*_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-c4e7cc91319ec5fa_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00000_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00001_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00002_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00003_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00004_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00005_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_*_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-e208a8b984b7130c_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00000_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00001_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00002_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00003_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00004_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00005_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_*_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-f0f5c4b75fd665e2_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00000_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00001_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00002_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00003_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00004_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00005_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_*_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/train/cache-24939b82b4fbb1a1_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00000_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00001_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00002_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00003_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00004_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00005_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_*_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/validation/cache-6d79dc68332bfbba_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00000_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #0 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00000_of_00006.arrow
+Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00001_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #1 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00001_of_00006.arrow
+Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00002_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #2 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00002_of_00006.arrow
+Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00003_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #3 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00003_of_00006.arrow
+Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00004_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #4 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00004_of_00006.arrow
+Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00005_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Process #5 will write at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_00005_of_00006.arrow
+Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_*_of_00006.arrow
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05/test/cache-680a20396d827bc0_*_of_00006.arrow
+Concatenating 6 shards
+01/05/2026 15:10:36 - INFO - datasets.arrow_dataset - Concatenating 6 shards
+Total number of training data: 931237
+Didn't find a checkpoint in checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4. Starting training from scratch
+[INFO|configuration_utils.py:763] 2026-01-05 15:10:36,822 >> loading configuration file /home/work/prompt/models/Llama-3.1-8B-Instruct/config.json
+[INFO|configuration_utils.py:839] 2026-01-05 15:10:36,823 >> Model config LlamaConfig {
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "dtype": "bfloat16",
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "transformers_version": "4.57.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[WARNING|logging.py:328] 2026-01-05 15:10:36,931 >> `torch_dtype` is deprecated! Use `dtype` instead!
+[INFO|modeling_utils.py:1169] 2026-01-05 15:10:36,931 >> loading weights file /home/work/prompt/models/Llama-3.1-8B-Instruct/model.safetensors.index.json
+[INFO|modeling_utils.py:2341] 2026-01-05 15:10:36,932 >> Instantiating LlamaAutoCompressorModel model under default dtype torch.bfloat16.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:10:36,934 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:10:36,934 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 66.58it/s]
+[WARNING|modeling_utils.py:5535] 2026-01-05 15:10:37,072 >> Some weights of LlamaAutoCompressorModel were not initialized from the model checkpoint at /home/work/prompt/models/Llama-3.1-8B-Instruct and are newly initialized: ['embed_summary.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:10:37,075 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:10:37,075 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:10:37,075 >> LlamaForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[WARNING|modeling_utils.py:2376] 2026-01-05 15:10:37,075 >> LlamaAutoCompressorModel has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+trainable params: 13,647,872 || all params: 8,043,925,504 || trainable%: 0.1697
+/home/work/prompt/dpc/autocompressor/base_trainer.py:154: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `SubstepTrainer.__init__`. Use `processing_class` instead.
+  super().__init__(model, args, *more_args, **kwargs)
+[2026-01-05 15:10:43,376] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[INFO|trainer.py:749] 2026-01-05 15:10:45,587 >> Using auto half precision backend
+01/05/2026 15:10:45 - INFO - __main__ - Using a model loaded from scratch!
+[WARNING|trainer.py:982] 2026-01-05 15:10:45,589 >> The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 128009}.
+[INFO|trainer.py:2519] 2026-01-05 15:10:45,854 >> ***** Running training *****
+[INFO|trainer.py:2520] 2026-01-05 15:10:45,855 >>   Num examples = 931,237
+[INFO|trainer.py:2521] 2026-01-05 15:10:45,855 >>   Num Epochs = 1
+[INFO|trainer.py:2522] 2026-01-05 15:10:45,855 >>   Instantaneous batch size per device = 2
+[INFO|trainer.py:2525] 2026-01-05 15:10:45,855 >>   Total train batch size (w. parallel, distributed & accumulation) = 2
+[INFO|trainer.py:2526] 2026-01-05 15:10:45,855 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:2527] 2026-01-05 15:10:45,855 >>   Total optimization steps = 465,619
+[INFO|trainer.py:2528] 2026-01-05 15:10:45,858 >>   Number of trainable parameters = 13,647,872
+[INFO|integration_utils.py:867] 2026-01-05 15:10:45,862 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: jy_jang (aaai2024) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.3
+wandb: Run data is saved locally in checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4 8 16_lr8e-4_bsz2_rand_accu/wandb/run-20260105_151046-0t8uyoy7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ac_Llama-3.1-8B-Instruct_sub2_seg2_sum4
+wandb: ⭐️ View project at https://wandb.ai/aaai2024/huggingface
+wandb: 🚀 View run at https://wandb.ai/aaai2024/huggingface/runs/0t8uyoy7
+[INFO|base_trainer.py:130] 2026-01-05 15:10:51,170 >> {'substep_0': 6.574571132659912, 'substep_1': 9.933631896972656, 'total_substeps': 2, 'epoch': 0, 'completed': '0.00% (1 / 465_619)', 'remaining time': '418:23:58'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:51,304 >> {'loss': 8.2541, 'grad_norm': 9.27345085144043, 'learning_rate': 0.0, 'epoch': 2.147678681497104e-06, 'completed': '0.00% (1 / 465_619)', 'remaining time': '435:40:38'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:52,281 >> {'substep_0': 6.647049427032471, 'substep_1': 8.857873916625977, 'total_substeps': 4, 'epoch': 2.147678681497104e-06, 'completed': '0.00% (1 / 465_619)', 'remaining time': '562:07:17'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:52,309 >> {'loss': 7.7525, 'grad_norm': 7.082914352416992, 'learning_rate': 1.6e-07, 'epoch': 4.295357362994208e-06, 'completed': '0.00% (2 / 465_619)', 'remaining time': '282:49:43'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:53,330 >> {'substep_0': 7.377625465393066, 'substep_1': 8.617968559265137, 'total_substeps': 6, 'epoch': 4.295357362994208e-06, 'completed': '0.00% (2 / 465_619)', 'remaining time': '348:53:32'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:53,358 >> {'loss': 7.9978, 'grad_norm': 10.213627815246582, 'learning_rate': 3.2e-07, 'epoch': 6.443036044491311e-06, 'completed': '0.00% (3 / 465_619)', 'remaining time': '233:48:01'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:54,631 >> {'substep_0': 7.179220199584961, 'substep_1': 9.112959861755371, 'total_substeps': 8, 'epoch': 6.443036044491311e-06, 'completed': '0.00% (3 / 465_619)', 'remaining time': '288:40:01'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:54,659 >> {'loss': 8.1461, 'grad_norm': 9.235633850097656, 'learning_rate': 4.8e-07, 'epoch': 8.590714725988416e-06, 'completed': '0.00% (4 / 465_619)', 'remaining time': '217:25:21'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:55,639 >> {'substep_0': 7.049172878265381, 'substep_1': 9.630775451660156, 'total_substeps': 10, 'epoch': 8.590714725988416e-06, 'completed': '0.00% (4 / 465_619)', 'remaining time': '249:06:46'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:55,667 >> {'loss': 8.34, 'grad_norm': 8.209012031555176, 'learning_rate': 6.4e-07, 'epoch': 1.073839340748552e-05, 'completed': '0.00% (5 / 465_619)', 'remaining time': '200:00:14'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:56,639 >> {'substep_0': 6.648648262023926, 'substep_1': 9.558732032775879, 'total_substeps': 12, 'epoch': 1.073839340748552e-05, 'completed': '0.00% (5 / 465_619)', 'remaining time': '225:09:18'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:56,666 >> {'loss': 8.1037, 'grad_norm': 14.435098648071289, 'learning_rate': 8.000000000000001e-07, 'epoch': 1.2886072088982622e-05, 'completed': '0.00% (6 / 465_619)', 'remaining time': '188:12:48'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:57,655 >> {'substep_0': 6.189873695373535, 'substep_1': 9.28879451751709, 'total_substeps': 14, 'epoch': 1.2886072088982622e-05, 'completed': '0.00% (6 / 465_619)', 'remaining time': '209:30:55'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:57,691 >> {'loss': 7.7393, 'grad_norm': 8.032362937927246, 'learning_rate': 9.6e-07, 'epoch': 1.5033750770479727e-05, 'completed': '0.00% (7 / 465_619)', 'remaining time': '180:15:40'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:58,692 >> {'substep_0': 6.127205848693848, 'substep_1': 9.49549674987793, 'total_substeps': 16, 'epoch': 1.5033750770479727e-05, 'completed': '0.00% (7 / 465_619)', 'remaining time': '198:45:38'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:58,720 >> {'loss': 7.8114, 'grad_norm': 9.250295639038086, 'learning_rate': 1.12e-06, 'epoch': 1.7181429451976832e-05, 'completed': '0.00% (8 / 465_619)', 'remaining time': '174:21:55'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:59,702 >> {'substep_0': 6.205490589141846, 'substep_1': 9.376730918884277, 'total_substeps': 18, 'epoch': 1.7181429451976832e-05, 'completed': '0.00% (8 / 465_619)', 'remaining time': '190:13:45'}
+[INFO|base_trainer.py:130] 2026-01-05 15:10:59,730 >> {'loss': 7.7911, 'grad_norm': 7.3743896484375, 'learning_rate': 1.28e-06, 'epoch': 1.9329108133473933e-05, 'completed': '0.00% (9 / 465_619)', 'remaining time': '169:29:51'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:00,727 >> {'substep_0': 6.974961757659912, 'substep_1': 9.532337188720703, 'total_substeps': 20, 'epoch': 1.9329108133473933e-05, 'completed': '0.00% (9 / 465_619)', 'remaining time': '183:49:20'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:00,755 >> {'loss': 8.2536, 'grad_norm': 10.974737167358398, 'learning_rate': 1.44e-06, 'epoch': 2.147678681497104e-05, 'completed': '0.00% (10 / 465_619)', 'remaining time': '165:48:48'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:02,052 >> {'substep_0': 5.787898063659668, 'substep_1': 8.990762710571289, 'total_substeps': 22, 'epoch': 2.147678681497104e-05, 'completed': '0.00% (10 / 465_619)', 'remaining time': '182:35:14'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:02,081 >> {'loss': 7.3893, 'grad_norm': 9.678845405578613, 'learning_rate': 1.6000000000000001e-06, 'epoch': 2.3624465496468143e-05, 'completed': '0.00% (11 / 465_619)', 'remaining time': '166:19:20'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:03,063 >> {'substep_0': 6.905192852020264, 'substep_1': 8.803661346435547, 'total_substeps': 24, 'epoch': 2.3624465496468143e-05, 'completed': '0.00% (11 / 465_619)', 'remaining time': '177:52:25'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:03,091 >> {'loss': 7.8544, 'grad_norm': 8.366453170776367, 'learning_rate': 1.76e-06, 'epoch': 2.5772144177965245e-05, 'completed': '0.00% (12 / 465_619)', 'remaining time': '163:21:18'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:04,072 >> {'substep_0': 6.9639973640441895, 'substep_1': 9.967156410217285, 'total_substeps': 26, 'epoch': 2.5772144177965245e-05, 'completed': '0.00% (12 / 465_619)', 'remaining time': '173:55:15'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:04,100 >> {'loss': 8.4656, 'grad_norm': 8.8062744140625, 'learning_rate': 1.92e-06, 'epoch': 2.791982285946235e-05, 'completed': '0.00% (13 / 465_619)', 'remaining time': '160:49:22'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:05,067 >> {'substep_0': 8.187254905700684, 'substep_1': 9.050658226013184, 'total_substeps': 28, 'epoch': 2.791982285946235e-05, 'completed': '0.00% (13 / 465_619)', 'remaining time': '170:26:23'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:05,097 >> {'loss': 8.619, 'grad_norm': 15.805710792541504, 'learning_rate': 2.08e-06, 'epoch': 3.0067501540959454e-05, 'completed': '0.00% (14 / 465_619)', 'remaining time': '158:32:43'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:06,079 >> {'substep_0': 7.823511123657227, 'substep_1': 7.789292335510254, 'total_substeps': 30, 'epoch': 3.0067501540959454e-05, 'completed': '0.00% (14 / 465_619)', 'remaining time': '167:37:12'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:06,108 >> {'loss': 7.8064, 'grad_norm': 12.743510246276855, 'learning_rate': 2.24e-06, 'epoch': 3.2215180222456556e-05, 'completed': '0.00% (15 / 465_619)', 'remaining time': '156:41:32'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:07,069 >> {'substep_0': 8.104959487915039, 'substep_1': 9.003461837768555, 'total_substeps': 32, 'epoch': 3.2215180222456556e-05, 'completed': '0.00% (15 / 465_619)', 'remaining time': '164:58:49'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:07,097 >> {'loss': 8.5542, 'grad_norm': 19.371397018432617, 'learning_rate': 2.4000000000000003e-06, 'epoch': 3.4362858903953664e-05, 'completed': '0.00% (16 / 465_619)', 'remaining time': '154:53:36'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:08,108 >> {'substep_0': 6.418081760406494, 'substep_1': 8.69093132019043, 'total_substeps': 34, 'epoch': 3.4362858903953664e-05, 'completed': '0.00% (16 / 465_619)', 'remaining time': '163:03:59'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:08,152 >> {'loss': 7.5545, 'grad_norm': 11.549528121948242, 'learning_rate': 2.56e-06, 'epoch': 3.6510537585450765e-05, 'completed': '0.00% (17 / 465_619)', 'remaining time': '153:48:31'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:09,122 >> {'substep_0': 7.8465800285339355, 'substep_1': 9.558884620666504, 'total_substeps': 36, 'epoch': 3.6510537585450765e-05, 'completed': '0.00% (17 / 465_619)', 'remaining time': '161:11:07'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:09,149 >> {'loss': 8.7027, 'grad_norm': 11.633286476135254, 'learning_rate': 2.72e-06, 'epoch': 3.865821626694787e-05, 'completed': '0.00% (18 / 465_619)', 'remaining time': '152:25:38'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:10,213 >> {'substep_0': 7.8076863288879395, 'substep_1': 9.918673515319824, 'total_substeps': 38, 'epoch': 3.865821626694787e-05, 'completed': '0.00% (18 / 465_619)', 'remaining time': '160:04:05'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:10,241 >> {'loss': 8.8632, 'grad_norm': 16.211713790893555, 'learning_rate': 2.88e-06, 'epoch': 4.0805894948444975e-05, 'completed': '0.00% (19 / 465_619)', 'remaining time': '151:50:00'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:11,347 >> {'substep_0': 6.468146800994873, 'substep_1': 9.41930103302002, 'total_substeps': 40, 'epoch': 4.0805894948444975e-05, 'completed': '0.00% (19 / 465_619)', 'remaining time': '159:21:45'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:11,374 >> {'loss': 7.9437, 'grad_norm': 8.020959854125977, 'learning_rate': 3.04e-06, 'epoch': 4.295357362994208e-05, 'completed': '0.00% (20 / 465_619)', 'remaining time': '151:34:25'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:12,490 >> {'substep_0': 8.515594482421875, 'substep_1': 9.13355541229248, 'total_substeps': 42, 'epoch': 4.295357362994208e-05, 'completed': '0.00% (20 / 465_619)', 'remaining time': '158:47:10'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:12,518 >> {'loss': 8.8246, 'grad_norm': 21.268362045288086, 'learning_rate': 3.2000000000000003e-06, 'epoch': 4.510125231143918e-05, 'completed': '0.00% (21 / 465_619)', 'remaining time': '151:23:48'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:13,637 >> {'substep_0': 6.958352565765381, 'substep_1': 9.892953872680664, 'total_substeps': 44, 'epoch': 4.510125231143918e-05, 'completed': '0.00% (21 / 465_619)', 'remaining time': '158:17:34'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:13,665 >> {'loss': 8.4257, 'grad_norm': 12.512141227722168, 'learning_rate': 3.36e-06, 'epoch': 4.7248930992936286e-05, 'completed': '0.00% (22 / 465_619)', 'remaining time': '151:15:40'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:14,775 >> {'substep_0': 7.078119277954102, 'substep_1': 8.710002899169922, 'total_substeps': 46, 'epoch': 4.7248930992936286e-05, 'completed': '0.00% (22 / 465_619)', 'remaining time': '157:47:14'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:14,803 >> {'loss': 7.8941, 'grad_norm': 14.834647178649902, 'learning_rate': 3.52e-06, 'epoch': 4.939660967443339e-05, 'completed': '0.00% (23 / 465_619)', 'remaining time': '151:04:56'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:15,910 >> {'substep_0': 7.50760555267334, 'substep_1': 9.626869201660156, 'total_substeps': 48, 'epoch': 4.939660967443339e-05, 'completed': '0.00% (23 / 465_619)', 'remaining time': '157:18:30'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:15,938 >> {'loss': 8.5672, 'grad_norm': 12.961203575134277, 'learning_rate': 3.68e-06, 'epoch': 5.154428835593049e-05, 'completed': '0.01% (24 / 465_619)', 'remaining time': '150:54:09'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:17,041 >> {'substep_0': 6.542566776275635, 'substep_1': 10.438863754272461, 'total_substeps': 50, 'epoch': 5.154428835593049e-05, 'completed': '0.01% (24 / 465_619)', 'remaining time': '156:50:44'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:17,069 >> {'loss': 8.4907, 'grad_norm': 9.281814575195312, 'learning_rate': 3.84e-06, 'epoch': 5.36919670374276e-05, 'completed': '0.01% (25 / 465_619)', 'remaining time': '150:42:58'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:18,191 >> {'substep_0': 8.305252075195312, 'substep_1': 9.649524688720703, 'total_substeps': 52, 'epoch': 5.36919670374276e-05, 'completed': '0.01% (25 / 465_619)', 'remaining time': '156:31:21'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:18,219 >> {'loss': 8.9774, 'grad_norm': 48.66286849975586, 'learning_rate': 4.000000000000001e-06, 'epoch': 5.58396457189247e-05, 'completed': '0.01% (26 / 465_619)', 'remaining time': '150:38:26'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:19,308 >> {'substep_0': 7.260746002197266, 'substep_1': 9.11354923248291, 'total_substeps': 54, 'epoch': 5.58396457189247e-05, 'completed': '0.01% (26 / 465_619)', 'remaining time': '156:03:30'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:19,335 >> {'loss': 8.1871, 'grad_norm': 20.35190200805664, 'learning_rate': 4.16e-06, 'epoch': 5.798732440042181e-05, 'completed': '0.01% (27 / 465_619)', 'remaining time': '150:24:25'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:20,436 >> {'substep_0': 6.341091156005859, 'substep_1': 9.580009460449219, 'total_substeps': 56, 'epoch': 5.798732440042181e-05, 'completed': '0.01% (27 / 465_619)', 'remaining time': '155:40:41'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:20,463 >> {'loss': 7.9606, 'grad_norm': 8.791779518127441, 'learning_rate': 4.32e-06, 'epoch': 6.013500308191891e-05, 'completed': '0.01% (28 / 465_619)', 'remaining time': '150:14:50'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:21,561 >> {'substep_0': 7.4613261222839355, 'substep_1': 9.417340278625488, 'total_substeps': 58, 'epoch': 6.013500308191891e-05, 'completed': '0.01% (28 / 465_619)', 'remaining time': '155:19:05'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:21,589 >> {'loss': 8.4393, 'grad_norm': 33.13591766357422, 'learning_rate': 4.48e-06, 'epoch': 6.228268176341601e-05, 'completed': '0.01% (29 / 465_619)', 'remaining time': '150:05:02'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:22,678 >> {'substep_0': 7.5508904457092285, 'substep_1': 9.009060859680176, 'total_substeps': 60, 'epoch': 6.228268176341601e-05, 'completed': '0.01% (29 / 465_619)', 'remaining time': '154:56:27'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:22,705 >> {'loss': 8.28, 'grad_norm': 23.120803833007812, 'learning_rate': 4.64e-06, 'epoch': 6.443036044491311e-05, 'completed': '0.01% (30 / 465_619)', 'remaining time': '149:53:37'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:23,810 >> {'substep_0': 6.135073661804199, 'substep_1': 8.180139541625977, 'total_substeps': 62, 'epoch': 6.443036044491311e-05, 'completed': '0.01% (30 / 465_619)', 'remaining time': '154:39:20'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:23,837 >> {'loss': 7.1576, 'grad_norm': 6.732929229736328, 'learning_rate': 4.800000000000001e-06, 'epoch': 6.657803912641021e-05, 'completed': '0.01% (31 / 465_619)', 'remaining time': '149:46:52'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:24,932 >> {'substep_0': 6.636240005493164, 'substep_1': 9.037745475769043, 'total_substeps': 64, 'epoch': 6.657803912641021e-05, 'completed': '0.01% (31 / 465_619)', 'remaining time': '154:21:00'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:24,960 >> {'loss': 7.837, 'grad_norm': 14.392745971679688, 'learning_rate': 4.96e-06, 'epoch': 6.872571780790733e-05, 'completed': '0.01% (32 / 465_619)', 'remaining time': '149:38:17'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:26,058 >> {'substep_0': 5.779982566833496, 'substep_1': 9.378807067871094, 'total_substeps': 66, 'epoch': 6.872571780790733e-05, 'completed': '0.01% (32 / 465_619)', 'remaining time': '154:04:37'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:26,086 >> {'loss': 7.5794, 'grad_norm': 8.021784782409668, 'learning_rate': 5.12e-06, 'epoch': 7.087339648940443e-05, 'completed': '0.01% (33 / 465_619)', 'remaining time': '149:30:54'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:27,183 >> {'substep_0': 8.295166969299316, 'substep_1': 9.584098815917969, 'total_substeps': 68, 'epoch': 7.087339648940443e-05, 'completed': '0.01% (33 / 465_619)', 'remaining time': '153:49:01'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:27,215 >> {'loss': 8.9396, 'grad_norm': 21.08846092224121, 'learning_rate': 5.28e-06, 'epoch': 7.302107517090153e-05, 'completed': '0.01% (34 / 465_619)', 'remaining time': '149:24:52'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:28,355 >> {'substep_0': 7.863950252532959, 'substep_1': 9.697993278503418, 'total_substeps': 70, 'epoch': 7.302107517090153e-05, 'completed': '0.01% (34 / 465_619)', 'remaining time': '153:44:57'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:28,397 >> {'loss': 8.781, 'grad_norm': 24.146528244018555, 'learning_rate': 5.44e-06, 'epoch': 7.516875385239863e-05, 'completed': '0.01% (35 / 465_619)', 'remaining time': '149:30:35'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:29,503 >> {'substep_0': 6.731904983520508, 'substep_1': 9.755744934082031, 'total_substeps': 72, 'epoch': 7.516875385239863e-05, 'completed': '0.01% (35 / 465_619)', 'remaining time': '153:35:51'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:29,532 >> {'loss': 8.2438, 'grad_norm': 11.027148246765137, 'learning_rate': 5.600000000000001e-06, 'epoch': 7.731643253389573e-05, 'completed': '0.01% (36 / 465_619)', 'remaining time': '149:26:01'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:30,652 >> {'substep_0': 7.261293888092041, 'substep_1': 9.047304153442383, 'total_substeps': 74, 'epoch': 7.731643253389573e-05, 'completed': '0.01% (36 / 465_619)', 'remaining time': '153:27:30'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:30,682 >> {'loss': 8.1543, 'grad_norm': 11.610095024108887, 'learning_rate': 5.76e-06, 'epoch': 7.946411121539285e-05, 'completed': '0.01% (37 / 465_619)', 'remaining time': '149:24:56'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:31,803 >> {'substep_0': 6.611542701721191, 'substep_1': 8.591973304748535, 'total_substeps': 76, 'epoch': 7.946411121539285e-05, 'completed': '0.01% (37 / 465_619)', 'remaining time': '153:20:01'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:31,838 >> {'loss': 7.6018, 'grad_norm': 9.377494812011719, 'learning_rate': 5.920000000000001e-06, 'epoch': 8.161178989688995e-05, 'completed': '0.01% (38 / 465_619)', 'remaining time': '149:25:07'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:32,979 >> {'substep_0': 6.6929731369018555, 'substep_1': 10.126884460449219, 'total_substeps': 78, 'epoch': 8.161178989688995e-05, 'completed': '0.01% (38 / 465_619)', 'remaining time': '153:18:08'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:33,009 >> {'loss': 8.4099, 'grad_norm': 16.057024002075195, 'learning_rate': 6.08e-06, 'epoch': 8.375946857838705e-05, 'completed': '0.01% (39 / 465_619)', 'remaining time': '149:28:07'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:34,112 >> {'substep_0': 6.0911078453063965, 'substep_1': 8.296384811401367, 'total_substeps': 80, 'epoch': 8.375946857838705e-05, 'completed': '0.01% (39 / 465_619)', 'remaining time': '153:07:35'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:34,140 >> {'loss': 7.1937, 'grad_norm': 9.09589672088623, 'learning_rate': 6.24e-06, 'epoch': 8.590714725988415e-05, 'completed': '0.01% (40 / 465_619)', 'remaining time': '149:23:20'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:35,255 >> {'substep_0': 7.421422958374023, 'substep_1': 8.81694221496582, 'total_substeps': 82, 'epoch': 8.590714725988415e-05, 'completed': '0.01% (40 / 465_619)', 'remaining time': '152:59:41'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:35,284 >> {'loss': 8.1192, 'grad_norm': 14.452014923095703, 'learning_rate': 6.4000000000000006e-06, 'epoch': 8.805482594138125e-05, 'completed': '0.01% (41 / 465_619)', 'remaining time': '149:21:08'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:36,407 >> {'substep_0': 5.758707523345947, 'substep_1': 9.7117338180542, 'total_substeps': 84, 'epoch': 8.805482594138125e-05, 'completed': '0.01% (41 / 465_619)', 'remaining time': '152:53:48'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:36,440 >> {'loss': 7.7352, 'grad_norm': 9.405326843261719, 'learning_rate': 6.560000000000001e-06, 'epoch': 9.020250462287836e-05, 'completed': '0.01% (42 / 465_619)', 'remaining time': '149:21:23'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:37,567 >> {'substep_0': 7.376259803771973, 'substep_1': 8.16358757019043, 'total_substeps': 86, 'epoch': 9.020250462287836e-05, 'completed': '0.01% (42 / 465_619)', 'remaining time': '152:49:40'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:37,595 >> {'loss': 7.7699, 'grad_norm': 31.02556800842285, 'learning_rate': 6.72e-06, 'epoch': 9.235018330437547e-05, 'completed': '0.01% (43 / 465_619)', 'remaining time': '149:21:30'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:38,707 >> {'substep_0': 7.879155158996582, 'substep_1': 9.367524147033691, 'total_substeps': 88, 'epoch': 9.235018330437547e-05, 'completed': '0.01% (43 / 465_619)', 'remaining time': '152:42:07'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:38,735 >> {'loss': 8.6233, 'grad_norm': 25.81839370727539, 'learning_rate': 6.88e-06, 'epoch': 9.449786198587257e-05, 'completed': '0.01% (44 / 465_619)', 'remaining time': '149:18:52'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:39,834 >> {'substep_0': 6.2967448234558105, 'substep_1': 9.155146598815918, 'total_substeps': 90, 'epoch': 9.449786198587257e-05, 'completed': '0.01% (44 / 465_619)', 'remaining time': '152:32:33'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:39,862 >> {'loss': 7.7259, 'grad_norm': 11.00553035736084, 'learning_rate': 7.04e-06, 'epoch': 9.664554066736967e-05, 'completed': '0.01% (45 / 465_619)', 'remaining time': '149:14:00'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:40,984 >> {'substep_0': 7.26786994934082, 'substep_1': 8.767340660095215, 'total_substeps': 92, 'epoch': 9.664554066736967e-05, 'completed': '0.01% (45 / 465_619)', 'remaining time': '152:27:32'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:41,014 >> {'loss': 8.0176, 'grad_norm': 10.703804016113281, 'learning_rate': 7.2e-06, 'epoch': 9.879321934886678e-05, 'completed': '0.01% (46 / 465_619)', 'remaining time': '149:13:36'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:42,122 >> {'substep_0': 6.708554267883301, 'substep_1': 8.856342315673828, 'total_substeps': 94, 'epoch': 9.879321934886678e-05, 'completed': '0.01% (46 / 465_619)', 'remaining time': '152:20:34'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:42,151 >> {'loss': 7.7824, 'grad_norm': 21.678342819213867, 'learning_rate': 7.36e-06, 'epoch': 0.00010094089803036388, 'completed': '0.01% (47 / 465_619)', 'remaining time': '149:10:50'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:43,267 >> {'substep_0': 6.534987926483154, 'substep_1': 9.218565940856934, 'total_substeps': 96, 'epoch': 0.00010094089803036388, 'completed': '0.01% (47 / 465_619)', 'remaining time': '152:15:03'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:43,295 >> {'loss': 7.8768, 'grad_norm': 11.882872581481934, 'learning_rate': 7.520000000000001e-06, 'epoch': 0.00010308857671186098, 'completed': '0.01% (48 / 465_619)', 'remaining time': '149:09:15'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:44,400 >> {'substep_0': 6.421613693237305, 'substep_1': 8.738357543945312, 'total_substeps': 98, 'epoch': 0.00010308857671186098, 'completed': '0.01% (48 / 465_619)', 'remaining time': '152:07:55'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:44,432 >> {'loss': 7.58, 'grad_norm': 10.130064964294434, 'learning_rate': 7.68e-06, 'epoch': 0.0001052362553933581, 'completed': '0.01% (49 / 465_619)', 'remaining time': '149:06:38'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:45,546 >> {'substep_0': 6.798483371734619, 'substep_1': 9.189399719238281, 'total_substeps': 100, 'epoch': 0.0001052362553933581, 'completed': '0.01% (49 / 465_619)', 'remaining time': '152:03:03'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:45,574 >> {'loss': 7.9939, 'grad_norm': 11.405749320983887, 'learning_rate': 7.84e-06, 'epoch': 0.0001073839340748552, 'completed': '0.01% (50 / 465_619)', 'remaining time': '149:04:59'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:46,669 >> {'substep_0': 6.432046413421631, 'substep_1': 8.55696964263916, 'total_substeps': 102, 'epoch': 0.0001073839340748552, 'completed': '0.01% (50 / 465_619)', 'remaining time': '151:54:56'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:46,698 >> {'loss': 7.4945, 'grad_norm': 10.140167236328125, 'learning_rate': 8.000000000000001e-06, 'epoch': 0.0001095316127563523, 'completed': '0.01% (51 / 465_619)', 'remaining time': '149:00:38'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:47,815 >> {'substep_0': 6.653090476989746, 'substep_1': 8.36839771270752, 'total_substeps': 104, 'epoch': 0.0001095316127563523, 'completed': '0.01% (51 / 465_619)', 'remaining time': '151:50:27'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:47,844 >> {'loss': 7.5107, 'grad_norm': 9.811829566955566, 'learning_rate': 8.160000000000001e-06, 'epoch': 0.0001116792914378494, 'completed': '0.01% (52 / 465_619)', 'remaining time': '148:59:41'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:48,946 >> {'substep_0': 7.181410789489746, 'substep_1': 8.257261276245117, 'total_substeps': 106, 'epoch': 0.0001116792914378494, 'completed': '0.01% (52 / 465_619)', 'remaining time': '151:44:06'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:48,979 >> {'loss': 7.7193, 'grad_norm': 10.580716133117676, 'learning_rate': 8.32e-06, 'epoch': 0.0001138269701193465, 'completed': '0.01% (53 / 465_619)', 'remaining time': '148:57:04'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:50,076 >> {'substep_0': 6.200403213500977, 'substep_1': 8.720013618469238, 'total_substeps': 108, 'epoch': 0.0001138269701193465, 'completed': '0.01% (53 / 465_619)', 'remaining time': '151:37:44'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:50,104 >> {'loss': 7.4602, 'grad_norm': 10.618644714355469, 'learning_rate': 8.48e-06, 'epoch': 0.00011597464880084361, 'completed': '0.01% (54 / 465_619)', 'remaining time': '148:53:14'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:51,209 >> {'substep_0': 6.598698139190674, 'substep_1': 8.244009971618652, 'total_substeps': 110, 'epoch': 0.00011597464880084361, 'completed': '0.01% (54 / 465_619)', 'remaining time': '151:32:01'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:51,242 >> {'loss': 7.4214, 'grad_norm': 15.901060104370117, 'learning_rate': 8.64e-06, 'epoch': 0.00011812232748234072, 'completed': '0.01% (55 / 465_619)', 'remaining time': '148:51:18'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:52,377 >> {'substep_0': 6.565804958343506, 'substep_1': 8.477144241333008, 'total_substeps': 112, 'epoch': 0.00011812232748234072, 'completed': '0.01% (55 / 465_619)', 'remaining time': '151:31:29'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:52,406 >> {'loss': 7.5215, 'grad_norm': 9.187459945678711, 'learning_rate': 8.8e-06, 'epoch': 0.00012027000616383782, 'completed': '0.01% (56 / 465_619)', 'remaining time': '148:53:08'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:53,527 >> {'substep_0': 6.064004898071289, 'substep_1': 8.502251625061035, 'total_substeps': 114, 'epoch': 0.00012027000616383782, 'completed': '0.01% (56 / 465_619)', 'remaining time': '151:28:25'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:53,556 >> {'loss': 7.2831, 'grad_norm': 8.618208885192871, 'learning_rate': 8.96e-06, 'epoch': 0.00012241768484533492, 'completed': '0.01% (57 / 465_619)', 'remaining time': '148:52:53'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:54,661 >> {'substep_0': 6.567271709442139, 'substep_1': 8.70998764038086, 'total_substeps': 116, 'epoch': 0.00012241768484533492, 'completed': '0.01% (57 / 465_619)', 'remaining time': '151:23:19'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:54,688 >> {'loss': 7.6386, 'grad_norm': 16.452701568603516, 'learning_rate': 9.12e-06, 'epoch': 0.00012456536352683202, 'completed': '0.01% (58 / 465_619)', 'remaining time': '148:50:23'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:55,794 >> {'substep_0': 6.881422519683838, 'substep_1': 7.699157238006592, 'total_substeps': 118, 'epoch': 0.00012456536352683202, 'completed': '0.01% (58 / 465_619)', 'remaining time': '151:18:18'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:55,825 >> {'loss': 7.2903, 'grad_norm': 20.959274291992188, 'learning_rate': 9.28e-06, 'epoch': 0.00012671304220832912, 'completed': '0.01% (59 / 465_619)', 'remaining time': '148:48:32'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:56,960 >> {'substep_0': 6.194454669952393, 'substep_1': 8.4461088180542, 'total_substeps': 120, 'epoch': 0.00012671304220832912, 'completed': '0.01% (59 / 465_619)', 'remaining time': '151:17:44'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:56,993 >> {'loss': 7.3203, 'grad_norm': 9.468570709228516, 'learning_rate': 9.44e-06, 'epoch': 0.00012886072088982622, 'completed': '0.01% (60 / 465_619)', 'remaining time': '148:50:42'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:58,127 >> {'substep_0': 6.852791786193848, 'substep_1': 7.680445671081543, 'total_substeps': 122, 'epoch': 0.00012886072088982622, 'completed': '0.01% (60 / 465_619)', 'remaining time': '151:17:18'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:58,155 >> {'loss': 7.2666, 'grad_norm': 13.86008071899414, 'learning_rate': 9.600000000000001e-06, 'epoch': 0.00013100839957132332, 'completed': '0.01% (61 / 465_619)', 'remaining time': '148:52:08'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:59,274 >> {'substep_0': 6.682796955108643, 'substep_1': 7.807153701782227, 'total_substeps': 124, 'epoch': 0.00013100839957132332, 'completed': '0.01% (61 / 465_619)', 'remaining time': '151:14:24'}
+[INFO|base_trainer.py:130] 2026-01-05 15:11:59,302 >> {'loss': 7.245, 'grad_norm': 19.16731071472168, 'learning_rate': 9.760000000000001e-06, 'epoch': 0.00013315607825282043, 'completed': '0.01% (62 / 465_619)', 'remaining time': '148:51:31'}
+[INFO|base_trainer.py:130] 2026-01-05 15:12:00,426 >> {'substep_0': 6.883335113525391, 'substep_1': 7.701562404632568, 'total_substeps': 126, 'epoch': 0.00013315607825282043, 'completed': '0.01% (62 / 465_619)', 'remaining time': '151:12:10'}
+[INFO|base_trainer.py:130] 2026-01-05 15:12:00,454 >> {'loss': 7.2924, 'grad_norm': 11.949667930603027, 'learning_rate': 9.92e-06, 'epoch': 0.00013530375693431755, 'completed': '0.01% (63 / 465_619)', 'remaining time': '148:51:37'}
+[INFO|base_trainer.py:130] 2026-01-05 15:12:01,546 >> {'substep_0': 6.523989200592041, 'substep_1': 7.935631275177002, 'total_substeps': 128, 'epoch': 0.00013530375693431755, 'completed': '0.01% (63 / 465_619)', 'remaining time': '151:06:07'}
+[INFO|base_trainer.py:130] 2026-01-05 15:12:01,575 >> {'loss': 7.2298, 'grad_norm': 10.267040252685547, 'learning_rate': 1.008e-05, 'epoch': 0.00013745143561581466, 'completed': '0.01% (64 / 465_619)', 'remaining time': '148:47:58'}
+[INFO|base_trainer.py:130] 2026-01-05 15:12:02,675 >> {'substep_0': 6.631479740142822, 'substep_1': 7.52653169631958, 'total_substeps': 130, 'epoch': 0.00013745143561581466, 'completed': '0.01% (64 / 465_619)', 'remaining time': '151:01:19'}
+[INFO|base_trainer.py:130] 2026-01-05 15:12:02,702 >> {'loss': 7.079, 'grad_norm': 11.07210636138916, 'learning_rate': 1.024e-05, 'epoch': 0.00013959911429731176, 'completed': '0.01% (65 / 465_619)', 'remaining time': '148:45:11'}
+[INFO|base_trainer.py:130] 2026-01-05 15:12:03,816 >> {'substep_0': 6.5958638191223145, 'substep_1': 7.292018890380859, 'total_substeps': 132, 'epoch': 0.00013959911429731176, 'completed': '0.01% (65 / 465_619)', 'remaining time': '150:58:07'}
+[INFO|base_trainer.py:130] 2026-01-05 15:12:03,844 >> {'loss': 6.9439, 'grad_norm': 11.630634307861328, 'learning_rate': 1.04e-05, 'epoch': 0.00014174679297880886, 'completed': '0.01% (66 / 465_619)', 'remaining time': '148:44:07'}

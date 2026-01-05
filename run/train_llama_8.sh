@@ -1,6 +1,6 @@
 # You can override the defaults by exporting environment variables before running this script.
 models=(${MODELS:-"/home/work/prompt/models/Llama-3.1-8B-Instruct"})
-summary_lengths=(${SUMMARY_LENGTHS:-"16"})
+summary_lengths=(${SUMMARY_LENGTHS:-"8"})
 dataset_path=${DATASET_PATH:-"/home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05"}
 block_size=${BLOCK_SIZE:-512}
 
@@ -9,7 +9,7 @@ bs=${SEQ:-8}            # batch size per device
 lr=${LR:-8e-4}
 warmup_steps=${WU:-500}
 save_steps=${SAVE:-500}
-num_gpus=${NUM_GPUS:-8}
+num_gpus=${NUM_GPUS:-2}
 segments_per_substep=${SEG:-2}
 training_substeps=${SUB:-2}
 num_nodes=${NUM_NODES:-1}
