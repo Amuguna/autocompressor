@@ -166,9 +166,11 @@ def main():
     config.segment_gradient_checkpointing = training_args.segment_gradient_checkpointing
 
     # Create model
-    if "llama" in (model_args.model_name_or_path or model_args.config_name).lower():
-        from auto_compressor import LlamaAutoCompressorModel
-        AutoCompressorModel = LlamaAutoCompressorModel
+    model_name_lower = (model_args.model_name_or_path or model_args.config_name or "").lower()
+    if "llama" in model_name_lower:
+        from auto_compressor import LlamaAutoCompressorModel as AutoCompressorModel
+    elif "qwen" in model_name_lower:
+        from auto_compressor import QwenAutoCompressorModel as AutoCompressorModel
     else:
         from auto_compressor import AutoCompressorModel
 

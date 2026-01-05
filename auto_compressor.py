@@ -8,6 +8,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from transformers import OPTForCausalLM
+try:
+    from transformers import Qwen2ForCausalLM
+except ImportError:  # older transformers without Qwen2
+    Qwen2ForCausalLM = None
 from modeling_flash_llama import LlamaForCausalLM
 
 from transformers.modeling_outputs import CausalLMOutputWithPast
@@ -344,3 +348,12 @@ class LlamaAutoCompressorModel(AutoCompressorMixin, LlamaForCausalLM):
     def get_past_key_values_len(self, past_key_values):
         # modeling_flash_llama has slightly different layout of past key vlaues
         return 0 if past_key_values is None else past_key_values[0][1]
+
+
+class QwenAutoCompressorModel(AutoCompressorMixin, Qwen2ForCausalLM):
+    def __init__(self, config):
+        if Qwen2ForCausalLM is None:
+            raise ImportError("Qwen2ForCausalLM not available in this transformers version")
+        super().__init__(config)
+        self.setup_autocompressor(config)
+        self.post_init()
