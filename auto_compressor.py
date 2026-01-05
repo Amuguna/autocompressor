@@ -156,6 +156,8 @@ class AutoCompressorMixin(GenerationMixin):
         segment_lengths: Optional[Union[List[int], int]] = None,
         softprompt: Optional[torch.FloatTensor] = None,
         output_softprompt: Optional[bool] = None,
+        cache_position: Optional[torch.LongTensor] = None,
+        **kwargs,
     ) -> Union[Tuple, CausalLMOutputWithPast]:
         # We formulate the past_key_values as a tuple where the second entry is the softprompt already in the past key values
         if past_key_values is not None and isinstance(past_key_values, dict):
@@ -171,6 +173,7 @@ class AutoCompressorMixin(GenerationMixin):
             raise ValueError("Compressor does not support head_mask")
         if inputs_embeds is not None and input_ids is not None:
             raise ValueError("Compressor does not support both input_ids and input_embeds")
+        # cache_position is unused; ignore for compatibility with HF generation utils
 
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
 
@@ -286,6 +289,8 @@ class AutoCompressorMixin(GenerationMixin):
         model_inputs = super().prepare_inputs_for_generation(input_ids, past_key_values, attention_mask, inputs_embeds, **kwargs)
         model_inputs["softprompt"] = kwargs.get("softprompt", None)
         model_inputs["segment_lengths"] = kwargs.get("segment_lengths", None)
+        # Drop cache_position if passed by newer generation utils
+        model_inputs.pop("cache_position", None)
         return model_inputs
 
 
