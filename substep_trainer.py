@@ -173,7 +173,7 @@ class SubstepTrainer(BaseTrainer):
             # deepspeed handles loss scaling by gradient_accumulation_steps in its `backward`
             loss = loss / self.args.gradient_accumulation_steps
 
-        if self.do_grad_scaling:
+        if getattr(self, "do_grad_scaling", False):
             self.scaler.scale(loss).backward()
 
         elif self.deepspeed:
