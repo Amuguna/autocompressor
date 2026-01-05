@@ -49,8 +49,14 @@ class AutoCompressorMixin:
             self.embed_summary = nn.Embedding(config.summary_length, self.get_input_embeddings().embedding_dim)
 
             input_embeds = self.get_input_embeddings()
-            self.embed_summary.weight.data[:,:] = (
-                input_embeds.weight[config.eos_token_id]
+            eos_token_id = config.eos_token_id
+            if isinstance(eos_token_id, (list, tuple)):
+                eos_token_id = eos_token_id[0]
+            eos_embed = input_embeds.weight[eos_token_id]
+            if eos_embed.dim() > 1:
+                eos_embed = eos_embed[0]
+            self.embed_summary.weight.data.copy_(
+                eos_embed.unsqueeze(0).expand_as(self.embed_summary.weight)
             )
 
     def forward_segment(
