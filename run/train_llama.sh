@@ -1,12 +1,12 @@
 nvidia-smi
 
 # You can override the defaults by exporting environment variables before running this script.
-models=(${MODELS:-"meta-llama/Llama-3.1-8B-Instruct Qwen/Qwen2.5-7B-Instruct"})
+models=(${MODELS:-"/home/work/prompt/models/Llama-3.1-8B-Instruct"})
 summary_lengths=(${SUMMARY_LENGTHS:-"4 8 16"})
 dataset_path=${DATASET_PATH:-"/home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05"}
 block_size=${BLOCK_SIZE:-512}
 
-total=${BATCH:-4}      # total batch size
+total=${BATCH:-2}      # total batch size
 bs=${SEQ:-2}            # batch size per device
 lr=${LR:-8e-4}
 warmup_steps=${WU:-5000}
