@@ -53,7 +53,14 @@ except ImportError:  # transformers >=4.45
 from transformers.trainer_pt_utils import get_module_class_from_name
 import time
 
-from transformers.deepspeed import deepspeed_init, is_deepspeed_zero3_enabled
+try:
+    from transformers.deepspeed import deepspeed_init, is_deepspeed_zero3_enabled
+except ImportError:
+    def deepspeed_init(*_args, **_kwargs):
+        raise ImportError("transformers.deepspeed is unavailable; install transformers with Deepspeed extras or disable --deepspeed")
+
+    def is_deepspeed_zero3_enabled(*_args, **_kwargs):
+        return False
 from peft import PeftModel
 
 if is_torch_tpu_available(check_device=False):
