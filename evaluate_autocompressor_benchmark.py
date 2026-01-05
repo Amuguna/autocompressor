@@ -18,7 +18,7 @@ import torch
 from peft import PeftModel
 from torch.utils.data import DataLoader, Dataset
 from tqdm import tqdm
-from transformers import AutoTokenizer, AutoConfig
+from transformers import AutoTokenizer, AutoConfig, GenerationConfig
 
 from auto_compressor import (
     LlamaAutoCompressorModel,
@@ -222,6 +222,11 @@ def build_model(args: argparse.Namespace, device: torch.device) -> ModelAdapter:
 
     if args.lora_path:
         base_model = PeftModel.from_pretrained(base_model, args.lora_path)
+
+    if getattr(base_model, "generation_config", None) is None:
+        base_model.generation_config = GenerationConfig.from_model_config(base_model.config)
+    if hasattr(base_model, "base_model") and getattr(base_model.base_model, "generation_config", None) is None:
+        base_model.base_model.generation_config = base_model.generation_config
     tokenizer = AutoTokenizer.from_pretrained(args.model_path)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
