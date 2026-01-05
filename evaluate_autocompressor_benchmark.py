@@ -479,4 +479,4 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
-# python evaluate_autocompressor_benchmark.py --model-path meta-llama/Llama-3.2-3B-Instruct --datasets HotpotQA --datasets-dir /home/jyjang/prompt_compression/dataset --batch-size 4
+# python evaluate_autocompressor_benchmark.py --summary-length 16 --lora-path /home/work/prompt/dpc/autocompressor/checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum16_lr8e-4_bsz64_rand_accu/checkpoint-2500 --model-path /home/work/prompt/models/Llama-3.1-8B-Instruct --datasets HotpotQA --datasets-dir /home/work/prompt/dpc/dataset/MRQA_benchmark --batch-size 4 --max-samples 32
