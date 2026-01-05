@@ -232,16 +232,23 @@ def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:
     if n_rep == 1:
         return hidden_states
 
+    # Squeeze any singleton dims beyond 5D (e.g., (B, S, 1, H_kv, 2, D))
+    while hidden_states.dim() > 5:
+        hidden_states = hidden_states.squeeze(2)
+
     if hidden_states.dim() == 5:
         if hidden_states.shape[2] == 2:
             # (B, S, 2, H_kv, D) -> (B, S, H_kv, 2, D)
             hidden_states = hidden_states.permute(0, 1, 3, 2, 4)
+        elif hidden_states.shape[3] == 2:
+            # (B, S, H_kv, 2, D) already in desired order
+            pass
         else:
             # (B, H_kv, 2, S, D) -> (B, S, H_kv, 2, D)
             hidden_states = hidden_states.permute(0, 3, 1, 2, 4)
 
-        b, s, h_kv, two, d = hidden_states.shape
-        hidden_states = hidden_states.unsqueeze(2).expand(b, s, h_kv * n_rep, two, d)
+        # Repeat kv heads to match attention heads
+        hidden_states = hidden_states.repeat_interleave(n_rep, dim=2)
         return hidden_states.contiguous()
 
     # Fallback to original behavior for 4D tensors
