@@ -208,6 +208,12 @@ def build_model(args: argparse.Namespace, device: torch.device) -> ModelAdapter:
             "Set it with --summary-length or use a checkpoint that includes it."
         )
 
+    # Safe defaults for older/base configs that lack compressor-specific flags
+    if not hasattr(config, "accumulate_summary"):
+        config.accumulate_summary = False
+    if not hasattr(config, "segment_gradient_checkpointing"):
+        config.segment_gradient_checkpointing = False
+
     try:
         base_model = ac_cls.from_pretrained(args.model_path, config=config, dtype=dtype)
     except TypeError:
