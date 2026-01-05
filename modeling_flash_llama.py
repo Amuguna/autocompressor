@@ -261,12 +261,11 @@ class LlamaAttention(nn.Module):
             persistent=False,
         )
 
-        if not getattr(self.config, "rope_scaling", None):
-            scaling_factor = 1
-        else:
-            scaling_type = self.config.rope_scaling["type"]
-            scaling_factor = self.config.rope_scaling["factor"]
-            assert scaling_type == 'linear'
+        rope_scaling = getattr(self.config, "rope_scaling", None) or {}
+        scaling_type = rope_scaling.get("type", "linear")
+        scaling_factor = rope_scaling.get("factor", 1)
+        if rope_scaling and scaling_type != "linear":
+            raise ValueError(f"Unsupported rope_scaling type: {scaling_type}")
         theta = getattr(self.config, "rope_theta", 10000)
         self.rotary_emb = FlashRotaryEmbedding(
             self.head_dim, base=theta, interleaved=False, scaling_factor=scaling_factor,
