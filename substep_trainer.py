@@ -31,7 +31,14 @@ class DataCollator:
     def __init__(self, tokenizer, additional_args):
         self.tokenizer = tokenizer
         self.additional_args = additional_args
-        self.pad_token_id = self.tokenizer.bos_token_id
+        # Prefer an explicit pad token; fallback to eos/bos if missing (e.g., some Qwen builds)
+        self.pad_token_id = (
+            getattr(self.tokenizer, "pad_token_id", None)
+            if getattr(self.tokenizer, "pad_token_id", None) is not None
+            else getattr(self.tokenizer, "eos_token_id", None)
+        )
+        if self.pad_token_id is None:
+            self.pad_token_id = getattr(self.tokenizer, "bos_token_id", 0)
 
     def __call__(self, features: Any) -> Dict[str, Any]:
         bsz = len(features)
