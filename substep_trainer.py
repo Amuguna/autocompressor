@@ -189,6 +189,8 @@ class SubstepTrainer(BaseTrainer):
         model: nn.Module,
         inputs: Dict[str, Union[torch.Tensor, Any]],
         num_items_in_batch: Optional[int] = None,
+        *args,
+        **kwargs,
     ) -> torch.Tensor:
         """One training step consists of many training_substeps.
 
