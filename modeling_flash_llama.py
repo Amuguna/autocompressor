@@ -323,12 +323,14 @@ class LlamaAttention(nn.Module):
         if has_layer_past:
             past_kv = past_key_value[0]
             past_len = past_key_value[1]
+            if past_len is None:
+                past_len = 0
         else:
             past_len = 0
 
         # NOTE: Hack to include position_ids, assuming they are increasing uniformly per block
         if position_ids is not None:
-            past_len += position_ids.min()
+            past_len += int(position_ids.min())
 
         q = self.q_proj(hidden_states)
         k = self.k_proj(hidden_states)
