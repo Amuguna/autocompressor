@@ -184,7 +184,12 @@ class SubstepTrainer(BaseTrainer):
 
         return loss.detach(), softprompt
 
-    def training_step(self, model: nn.Module, inputs: Dict[str, Union[torch.Tensor, Any]]) -> torch.Tensor:
+    def training_step(
+        self,
+        model: nn.Module,
+        inputs: Dict[str, Union[torch.Tensor, Any]],
+        num_items_in_batch: Optional[int] = None,
+    ) -> torch.Tensor:
         """One training step consists of many training_substeps.
 
         Note that gradient_accumulation_steps is still measured in full training steps,
