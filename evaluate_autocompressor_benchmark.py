@@ -18,7 +18,7 @@ import torch
 from peft import PeftModel
 from torch.utils.data import DataLoader, Dataset
 from tqdm import tqdm
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, AutoConfig
 
 from auto_compressor import (
     LlamaAutoCompressorModel,
@@ -199,7 +199,21 @@ def build_model(args: argparse.Namespace, device: torch.device) -> ModelAdapter:
     else:
         ac_cls = OPTAutoCompressorModel
 
-    base_model = ac_cls.from_pretrained(args.model_path, torch_dtype=dtype)
+    config = AutoConfig.from_pretrained(args.model_path)
+    if args.summary_length is not None:
+        config.summary_length = args.summary_length
+    if not hasattr(config, "summary_length"):
+        raise ValueError(
+            "Base model config is missing summary_length. "
+            "Set it with --summary-length or use a checkpoint that includes it."
+        )
+
+    try:
+        base_model = ac_cls.from_pretrained(args.model_path, config=config, dtype=dtype)
+    except TypeError:
+        # Fallback for older transformers that expect torch_dtype
+        base_model = ac_cls.from_pretrained(args.model_path, config=config, torch_dtype=dtype)
+
     if args.lora_path:
         base_model = PeftModel.from_pretrained(base_model, args.lora_path)
     tokenizer = AutoTokenizer.from_pretrained(args.model_path)
@@ -401,6 +415,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-samples", type=int, default=None, help="Optional limit on samples per dataset.")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility.")
     parser.add_argument("--prompt-template", default="Question: {question} Answer: ", help="Prompt template applied before generation.")
+    parser.add_argument("--summary-length", type=int, default=None, help="Manually set summary_length if missing in the base config.")
     return parser.parse_args()
 
 
