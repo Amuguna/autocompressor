@@ -218,14 +218,33 @@ class LlamaMLP(nn.Module):
         return self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
 
 
-@torch.jit.script
 def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:
     """
-    This is the equivalent of torch.repeat_interleave(x, dim=1, repeats=n_rep). The hidden states go from (batch,
-    num_key_value_heads, seqlen, head_dim) to (batch, num_attention_heads, seqlen, head_dim)
+    Repeat key/value heads to match attention heads. Handles stacked kv shape used in flash attention path.
+
+    Expected inputs:
+    - (batch, seq, 2, num_kv_heads, head_dim)
+    - (batch, num_kv_heads, 2, seq, head_dim)
+
+    Output:
+    - (batch, seq, num_kv_heads * n_rep, 2, head_dim)
     """
     if n_rep == 1:
         return hidden_states
+
+    if hidden_states.dim() == 5:
+        if hidden_states.shape[2] == 2:
+            # (B, S, 2, H_kv, D) -> (B, S, H_kv, 2, D)
+            hidden_states = hidden_states.permute(0, 1, 3, 2, 4)
+        else:
+            # (B, H_kv, 2, S, D) -> (B, S, H_kv, 2, D)
+            hidden_states = hidden_states.permute(0, 3, 1, 2, 4)
+
+        b, s, h_kv, two, d = hidden_states.shape
+        hidden_states = hidden_states.unsqueeze(2).expand(b, s, h_kv * n_rep, two, d)
+        return hidden_states.contiguous()
+
+    # Fallback to original behavior for 4D tensors
     final_shape = list(hidden_states.shape[:-2]) + [-1] + [hidden_states.shape[-1]]
     expand_shape = [-1] * (len(hidden_states.shape) - 1) + [n_rep] + [-1]
     hidden_states = hidden_states.unsqueeze(-1).expand(expand_shape)
