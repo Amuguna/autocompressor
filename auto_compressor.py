@@ -8,6 +8,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from transformers import OPTForCausalLM
+from transformers.generation.utils import GenerationMixin
 try:
     from transformers import Qwen2ForCausalLM
 except ImportError:  # older transformers without Qwen2
@@ -40,7 +41,7 @@ class CausalACOutputWithPast(CausalLMOutputWithPast):
     softprompt: Optional[torch.FloatTensor]= None
 
 
-class AutoCompressorMixin:
+class AutoCompressorMixin(GenerationMixin):
     """Mixin class to turn a AutoModelForCausalLM into an AutoCompressor."""
 
     def setup_autocompressor(self, config):
