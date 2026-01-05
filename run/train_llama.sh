@@ -3,7 +3,7 @@ nvidia-smi
 # You can override the defaults by exporting environment variables before running this script.
 models=(${MODELS:-"meta-llama/Llama-3.1-8B-Instruct Qwen/Qwen2.5-7B-Instruct"})
 summary_lengths=(${SUMMARY_LENGTHS:-"4 8 16"})
-dataset_path=${DATASET_PATH:-"/ext_hdd/jyjang/arxiv_oai_splits_2024-05"}
+dataset_path=${DATASET_PATH:-"/home/work/prompt/dpc/dataset/arxiv_oai_splits_2024-05"}
 block_size=${BLOCK_SIZE:-512}
 
 total=${BATCH:-4}      # total batch size
