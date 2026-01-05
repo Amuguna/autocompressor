@@ -139,7 +139,13 @@ class AutoCompressorMixin(GenerationMixin):
         return outputs, segment_last_hiddens, new_softprompt
 
     def get_past_key_values_len(self, past_key_values):
-        return 0 if past_key_values is None else past_key_values[0][0].size(2)
+        if past_key_values is None:
+            return 0
+        # Handle cases where generate passes empty/placeholder PKVs
+        try:
+            return past_key_values[0][0].size(2)
+        except Exception:
+            return 0
 
     def forward(
         self,
@@ -167,7 +173,7 @@ class AutoCompressorMixin(GenerationMixin):
         else:
             past_key_values_softprompt_length = 0
 
-        past_key_values_length = self.get_past_key_values_len(past_key_values) - past_key_values_softprompt_length
+        past_key_values_length = max(0, (self.get_past_key_values_len(past_key_values) or 0) - past_key_values_softprompt_length)
 
         if head_mask is not None:
             raise ValueError("Compressor does not support head_mask")
