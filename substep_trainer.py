@@ -66,17 +66,19 @@ class SubstepTrainer(BaseTrainer):
         optimizers: Tuple[torch.optim.Optimizer, torch.optim.lr_scheduler.LambdaLR] = (None, None),
         preprocess_logits_for_metrics: Callable[[torch.Tensor, torch.Tensor], torch.Tensor] = None,
     ):
-        super().__init__(model,
-                         args,
-                         DataCollator(tokenizer, args),
-                         train_dataset,
-                         eval_dataset,
-                         tokenizer,
-                         model_init,
-                         compute_metrics,
-                         callbacks,
-                         optimizers,
-                         preprocess_logits_for_metrics)
+        super().__init__(
+            model=model,
+            args=args,
+            data_collator=DataCollator(tokenizer, args),
+            train_dataset=train_dataset,
+            eval_dataset=eval_dataset,
+            tokenizer=tokenizer,
+            model_init=model_init,
+            compute_metrics=compute_metrics,
+            callbacks=callbacks,
+            optimizers=optimizers or (None, None),
+            preprocess_logits_for_metrics=preprocess_logits_for_metrics,
+        )
 
         self.current_block = 0
         self.loss_log = {f"substep_{i}": 0 for i in range(self.args.training_substeps)}
