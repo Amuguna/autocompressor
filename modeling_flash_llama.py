@@ -183,11 +183,15 @@ class FlashRotaryEmbedding(torch.nn.Module):
         seqlen_offset: can be used in generation where the qkv being passed in is only the last
         token in the batch.
         """
+        if seqlen_offset is None:
+            seqlen_offset = 0
+
         if unpadded_lengths is not None:
             cu_seqlens, max_seqlen = unpadded_lengths
         else:
             cu_seqlens, max_seqlen = None, q.shape[1]
-        self._update_cos_sin_cache(max_seqlen + seqlen_offset, device=q.device, dtype=q.dtype)
+
+        self._update_cos_sin_cache(int(max_seqlen) + int(seqlen_offset), device=q.device, dtype=q.dtype)
 
         if self.scale is None:
             return apply_rotary_emb_func(
