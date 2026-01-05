@@ -1,0 +1,14 @@
+{
+  "model_path": "/home/work/prompt/models/Llama-3.1-8B-Instruct",
+  "lora_path": "/home/work/prompt/dpc/autocompressor/checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum16_lr8e-4_bsz64_rand_accu/checkpoint-2500",
+  "summary_length": 16,
+  "datasets": [
+    {
+      "dataset": "HotpotQA",
+      "samples": 32,
+      "exact_match": 0.0,
+      "f1": 6.360557289297279,
+      "total_time_s": 23.803005474619567
+    }
+  ]
+}

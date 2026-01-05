@@ -331,3 +331,5 @@ def parse_args() -> argparse.Namespace:
 
 if __name__ == "__main__":
     evaluate(parse_args())
+
+# CUDA_VISIBLE_DEVICES=0 python evaluate_autocompressor_pwc.py --lora-path /home/work/prompt/dpc/autocompressor/checkpoints/ac_Llama-3.1-8B-Instruct_sub2_seg2_sum16_lr8e-4_bsz64_rand_accu/checkpoint-5000 --summary-length 16 --batch-size 32 --output-dir ./predictions/pwc/llama8b --dataset-path /home/work/prompt/dpc/dataset/PwC/PwC_test.jsonl --model-path /home/work/prompt/models/Llama-3.1-8B-Instruct --max-samples 32

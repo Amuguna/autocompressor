@@ -1,0 +1,8 @@
+{
+  "dataset": "HotpotQA",
+  "samples": 32,
+  "exact_match": 0.0,
+  "f1": 6.360557289297279,
+  "total_time_s": 23.803005474619567,
+  "samples_per_second": 1.3443680477291258
+}
